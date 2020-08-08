@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .stage{
+            width: 400px;
+            height: 400px;
+            perspective: 400px;
+            background-color: aquamarine;
+            margin: 40px auto;
+        }
+        .stage .box{
+            width: 400px;
+            height: 400px;
+            /* 绕着屏幕上下转 */
+            /* transform: rotateX(30deg); */
+            /* 绕着屏幕左右转 */
+            transform: rotateX(30deg) rotateY(30deg) translateZ(100px);
+
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

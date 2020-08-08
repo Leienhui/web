@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="请输入您的身高（m）" onfocus="javascript:if(this.value=='请输入您的身高（m）')this.value='';" id="input1">
+    <input type="text" value="请输入您的体重（kg）" onfocus="javascript:if(this.value=='请输入您的体重（kg）')this.value='';" id="input2">
+    <button id="btn">BMI</button>
+    <h1 id="h1"></h1>
+    <script>
+        // 体质指数（BMI）计算公式等于：体重（千克）除以身高（平方米）
+        var input1=document.getElementById("input1");
+        var input2=document.getElementById("input2");
+        var h1=document.getElementById("h1");
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+            var height=parseFloat(input1.value);
+            var weight=parseFloat(input2.value);
+            var BMI=weight/Math.pow(height,2);
+            if(BMI>=30){
+                h1.innerHTML="过度肥胖";
+            }
+            else if(BMI>=25){
+                h1.innerHTML="偏胖";
+
+            }
+            else if(BMI>18.5){
+                h1.innerHTML="正常";
+
+            }
+            else{
+                h1.innerHTML="偏瘦";
+
+            }
+        }
+    </script>
+</body>
+</html>

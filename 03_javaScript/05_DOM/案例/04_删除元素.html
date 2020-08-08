@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="box">
+    <input type="text" value="哈哈哈哈" id="input">
+    <button id="btn">按钮</button>
+    <ul id="ul">
+        <li>哈哈哈哈</li>
+        <li>哈哈哈哈</li>
+        <li>哈哈哈哈</li>
+    </ul>
+   </div>
+    <script>
+        var box=document.getElementById('box');
+        var input=document.getElementById('input');
+        var btn=document.getElementById('btn');
+        var ul=document.getElementById('ul');
+        btn.onclick=function(){
+        //    box.removeChild(ul);
+        ul.parentNode.removeChild(ul);
+        }
+    </script>
+</body>
+</html>

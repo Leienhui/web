@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 2.	一个四位数倒过来比它本身小1818，这个四位数是多少？（巨简单）
+        // for(var i=1000;i<10000;i++){
+        //     var qian=parseInt(i/1000);
+        //     var bai=parseInt((i%1000)/100);
+        //     var shi=parseInt(((i%1000)%100)/10);
+        //     var ge=i%10;
+        //     if((ge*1000+shi*100+bai*10+qian)+1818==i){
+        //         console.log(i);
+        //     }
+
+        // }
+       for(var i=1000;i<10000;i++){
+           if(Number(i.toString().split('').reverse().join(''))+1818==i){
+               console.log(i);
+           }
+       }
+       
+    </script>
+</body>
+</html>

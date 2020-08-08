@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 一个四位数如果有这样的特点，被称为王达数： 它自己是质数，倒过来也是质数。请寻找1000~9999的所有王达数。
+        // 质数：公约数只有1和他本身==>约数长度为2
+        for (var i = 1000; i < 10000; i++) {
+            // 注意这个计数器的位置，别放错了
+            var length1 = 0;
+            for (var j = 1; j <= i; j++) {
+                if (i % j == 0) {
+                    length1++;
+                }
+            }
+            if (length1 == 2) {
+                var qian = parseInt(i / 1000);
+                var bai = parseInt((i % 1000) / 100);
+                var shi = parseInt(((i % 1000) % 100) / 10);
+                var ge = parseInt(((i % 1000) % 100) % 10);
+                var xinshu = ge * 1000 + shi * 100 + bai * 10 + qian;
+                var length2 = 0;
+                for (var k = 1; k <= xinshu; k++) {
+                    if (xinshu % k == 0) {
+                        length2++;
+                    }
+                }
+                if (length2 == 2) {
+                    console.log(i + '是王达数')
+                }
+
+
+            }
+        }
+    </script>
+</body>
+
+</html>

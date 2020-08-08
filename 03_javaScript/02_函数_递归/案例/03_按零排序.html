@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function zero(n) {
+            var str = String(n);
+            var length = 0;
+            for (var i = 0; i < str.length; i++) {
+                if (str[i] == '0') {
+                    length++;
+                }
+            }
+            return length;
+        }
+        var arr1 = [1000, 230, 500, 1700000, 180000];
+        // for (var m = 0; m < arr1.length; m++) {
+        //     for (var k = m+1; k < arr1.length; k++) {
+        //         if(zero(arr1[m])>zero(arr1[k])){
+        //             var temp=arr1[m];
+        //             arr1[m]=arr1[k];
+        //             arr1[k]=temp;
+        //         }
+        //     }
+        // }
+        // ====================================冒泡===============
+        for (var m = 0; m < arr1.length; m++) {
+            for (var k = 0; k < arr1.length-1; k++) {
+                if(zero(arr1[k])>zero(arr1[k+1])){
+                    var temp=arr1[k];
+                    arr1[k]=arr1[k+1];
+                    arr1[k+1]=temp;
+                }
+            }
+        }
+k
+
+        console.log(arr1);
+
+    </script>
+</body>
+
+</html>

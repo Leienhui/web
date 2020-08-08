@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            margin: 50px auto;
+            width: 700px;
+            height: 500px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .box .list {
+            list-style: none;
+            position: relative;
+        }
+
+        .box .list li {
+            width: 700px;
+            height: 500px;
+            position: absolute;
+            left: 0;
+            display: none;
+        }
+
+        .box .list li.cur {
+            display: block;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box .leftBtn {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            margin-top: -15px;
+            background-color: yellow;
+            z-index: 999;
+            border-radius: 50%;
+            text-align: left;
+            line-height: 30px;
+            font-size: 20px;
+
+
+        }
+
+        .box .rightBtn {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            margin-top: -15px;
+            background-color: yellow;
+            z-index: 999;
+            border-radius: 50%;
+            text-align: right;
+            line-height: 30px;
+            font-size: 20px;
+        }
+
+        .box .circles {
+            width: 150px;
+            height: 20px;
+            list-style: none;
+            z-index: 999;
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+
+
+        }
+
+        .box .circles li {
+            width: 20px;
+            height: 20px;
+            background-color: rgb(39, 150, 29);
+            border-radius: 50%;
+            margin-right: 10px;
+            float: left;
+        }
+
+        .box .circles li.cur {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="list">
+            <li class="cur"><img src="../images/1.jpg" alt=""></li>
+            <li><img src="../images/2.jpg" alt=""></li>
+            <li><img src="../images/4.jpg" alt=""></li>
+            <li><img src="../images/5.jpg" alt=""></li>
+            <li><img src="../images/6.jpg" alt=""></li>
+        </ul>
+        <p class="leftBtn">《</p>
+        <p class="rightBtn">》</p>
+        <ul class="circles">
+            <li class="cur"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var idx = 0;
+        $('.rightBtn').click(function () {
+            //    判断还有没有li在运动
+            if ($('.list li').is(':animated')) {
+                return;
+            }
+            if (idx < 4) {
+                $('.list li').eq(idx).fadeOut(600);
+                $('.circles li').eq(idx).removeClass('cur');
+                $('.list li').eq(++idx).fadeIn(600);
+                $('.circles li').eq(idx).addClass('cur');
+
+
+            } else {
+                $('.list li').eq(idx).fadeOut(600);
+                $('.circles li').eq(idx).removeClass('cur');
+                idx = 0;
+                $('.list li').eq(idx).fadeIn(600);
+                $('.circles li').eq(idx).addClass('cur');
+            }
+
+        });
+        $('.leftBtn').click(function () {
+            //    判断还有没有li在运动
+            if ($('.list li').is(':animated')) {
+                return;
+            }
+
+            $('.list li').eq(idx).fadeOut(600);
+            $('.circles li').eq(idx).removeClass('cur');
+            if (idx <= 0) {
+                idx = 4;
+                $('.list li').eq(idx).fadeIn(600);
+                $('.circles li').eq(idx).addClass('cur');
+
+            } else {
+                $('.list li').eq(--idx).fadeIn(600);
+                $('.circles li').eq(idx).addClass('cur');
+            }
+        });
+        $('.circles li').click(function () {
+            if ($('.circles li').is(':animated')) {
+                return;
+            }
+            $('.list li').eq(idx).fadeOut(600);
+            $('.circles li').eq(idx).removeClass('cur');
+            idx = $(this).index();
+            $('.list li').eq(idx).fadeIn();
+            $('.circles li').eq(idx).addClass('cur');
+        });
+        var lock = true;
+        var timer = setInterval(function () {
+            if (lock) {
+                $('.rightBtn').trigger('click');
+            }
+        }, 1000);
+
+        $('.box').mouseenter(function () {
+            lock = false;
+        });
+        $('.box').mouseleave(function () {
+            lock = true;
+        })
+    </script>
+</body>
+
+</html>

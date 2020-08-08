@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="请输入六边形边长" onfocus="javascript:if(this.value=='请输入六边形边长')this.value='';" id="input">
+    <button id="btn">面积</button>
+    <h1 id="h1"></h1>
+    
+    <script>
+        // 六边形的面积公式为：(根号3)/2*a*a*3
+        var input=document.getElementById("input");
+        var h1=document.getElementById("h1");
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+            var value=Number (input.value);
+            var square=Math.sqrt(3)/2*Math.pow(value,2)*3;
+            h1.innerHTML=square;
+        }
+    </script>
+</body>
+</html>

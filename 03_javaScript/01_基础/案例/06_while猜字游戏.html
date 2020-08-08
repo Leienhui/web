@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+        <script>
+           var  daan=parseInt(Math.random()*99+1);
+           console.log(daan);
+           var da=99;
+           var xiao=2;
+           while(true){
+               var a=prompt("请输入一个"+xiao+"~"+da+"数");
+               if(a==daan){
+                   alert("中奖数"+a);
+                   break;
+               }else if(a>daan){
+                   alert("数字大了");
+                   da=a;
+               }else{
+                alert("数字小了");
+                xiao=a;
+               }
+           }
+        </script>
+</body>
+</html>

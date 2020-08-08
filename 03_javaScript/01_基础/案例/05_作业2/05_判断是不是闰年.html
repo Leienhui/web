@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="input" type="text" value="请输入输入年份" onfocus="javascript:if(this.value=='请输入输入年份') this.value='' ;">
+    <button id="btn">是不是闰年</button>
+    <h1 id="h1"></h1>
+    <script>
+        // 闰年的判断规则是，只要符合下面两个条件之一的，就是闰年：
+        // 1、能被4整除而不能被100整除。
+        // 2、能被100整除也能被400整除
+        // 根据这个条件，闰年基本上是4年一次，但是也有例外。
+        // 比如1892年是闰年、1896年是闰年、1900年不是闰年、1904年是闰年。
+        // 看见了么，1900年不是闰年，因为它不符合条件1也不符合条件2。你看，1900除以4的确能整除，但是它不能被100整除。1900能被100整除，但是它不能被400整除。
+        // 请用户输入年份，点击按钮之后，显示是否为闰年。
+
+        var input = document.getElementById("input");
+        var btn = document.getElementById("btn");
+        var h1 = document.getElementById("h1");
+        btn.onclick = function () {
+            var value = Number(input.value);
+            if ((value % 4 == 0&&value % 100 != 0)||(value % 100 == 0 && value % 400 == 0)) {
+                h1.innerHTML = value + "年是闰年";
+            }
+            else {
+                h1.innerHTML = value + "年不是闰年";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

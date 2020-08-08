@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input" type="text" value="请输入一个三位数" onfocus="javascript:if(this.value=='请输入一个三位数') this.value='' ;">
+    <button id="btn">翻转输出</button>
+    <h1 id="h1"></h1>
+    <script>
+        var  input=document.getElementById("input");
+        var btn=document.getElementById("btn");
+        var h1=document.getElementById("h1");
+        btn.onclick=function(){
+            var value=Number (input.value);
+            var gewei=parseInt(value/100);
+            var shiwei=parseInt((value%100)/10);
+            var baiwei=parseInt((value%100)%10);
+            var result=gewei+shiwei*10+baiwei*100;
+            h1.innerHTML=result;
+        }
+        
+    </script>
+</body>
+</html>

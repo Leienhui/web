@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 游泳比赛六个评委打分为[39, 45, 42, 44, 51, 48]，最终得分计算方法是：去掉一个最高分、去掉一个最低分，剩下4个数字取平均。请问这个选手最终得分是多少？
+        var arr = [39, 45, 42, 44, 51, 48];
+        var result = 0;
+        var sum=0
+        var max = arr[1];
+        var min = arr[1];
+        for (var j = 0; j < arr.length; j++) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] >max) {
+                    max = arr[i];
+                }
+                if(arr[i]<min){
+                    min = arr[i];
+                }
+            }
+            sum+=arr[j];
+        }
+        result=(sum-max-min)/(arr.length-2);
+        console.log(result);
+
+    </script>
+</body>
+
+</html>

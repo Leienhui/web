@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="input" type="text" value="请输入一个四位数" onfocus="javascript:if(this.value=='请输入一个四位数') this.value='' ;">
+    <button id="btn">是不是强壮数</button>
+    <script>
+        // 用户输入一个4位数，判断这个4位数是不是“强壮数”。
+        // 什么是强壮数呢？？比如这个数字是abcd，那么如果dcba和badc都大于abcd，则它是强壮数。
+        // 比如，看看1234是不是强壮数。4321大于1234， 2143也大于1234，所以1234强壮。
+        // 比如，看看1266是不是强壮数。6621大于1266，2166也大于1266，所以1266强壮。
+        // 比如，看看8848是不是强壮数。8488小于8848， 8884大于8848，所以8848不强壮。
+        var input = document.getElementById("input");
+        var btn = document.getElementById("btn");
+        btn.onclick=function(){
+            var value = Number(input.value);
+            var a=parseInt(value/1000)
+            var b=parseInt((value%1000)/100);
+            var c=parseInt(((value%1000)%100)/10);
+            var d=parseInt(((value%1000)%100)%10);
+            if(d*1000+c*100+b*10+a>value&&b*1000+a*100+d*10+c>value){
+                alert(value+'是强壮数');
+            }
+            else{
+                alert(value+'不是强壮数');
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

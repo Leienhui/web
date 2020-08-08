@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇</title>
+    <style>
+        table{
+            margin: 40px auto;
+          border-collapse: collapse;  
+        }
+        td{
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <table id="table"></table>
+    <script>
+        var table = document.getElementById('table');
+        for (var i = 0; i < 20; i++) {
+            var tr = document.createElement('tr');
+            for (var j = 0; j < 20; j++) {
+                var td=document.createElement('td');
+                tr.appendChild(td);
+            }
+            table.appendChild(tr)
+        }
+        
+
+        
+
+    </script>
+</body>
+
+</html>

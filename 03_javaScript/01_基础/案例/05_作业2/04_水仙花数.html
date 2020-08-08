@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input" type="text" value="请输入一个三位数" onfocus="javascript:if(this.value=='请输入一个三位数') this.value='' ;">
+    <button id="btn">是不是水仙花数</button>
+    <h1 id="h1"></h1>
+    <script>
+        // 水仙花数是指一个 3 位数，它的每个位上的数字的 3次幂之和等于它本身。比如153就是水仙花数，因为1的立方 + 5的立方 + 3的立方就等于153本身。请用户输入一个3位数，点击按钮后，显示它是否是水仙花数。
+        var  input=document.getElementById("input");
+        var btn=document.getElementById("btn");
+        var h1=document.getElementById("h1");
+        btn.onclick=function(){
+            var value=parseInt (input.value);
+            var baiwei=parseInt(value/100);
+            var shiwei=parseInt((value%100)/10);
+            var gewei=parseInt((value%100)%10);
+            if(Math.pow(parseInt(value/100),3)+Math.pow(parseInt((value%100)/10),3)+Math.pow(parseInt((value%100)%10),3)==baiwei*100+shiwei*10+gewei){
+            h1.innerHTML=value+"是水仙花数";
+
+            }
+            else{
+            h1.innerHTML=value+"不是水仙花数";
+
+            }
+        }
+        
+    </script>
+</body>
+</html>
+
+
+

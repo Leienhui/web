@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 哥德巴赫猜想：即任一大于2的偶数都可写成两个质数之和。
+        function zhishu(n) {
+            var length = 0;
+            for (var j = 1; j <= n; j++) {
+                if (n % j == 0) {
+                    length++;
+                }
+            }
+            if (length == 2) {
+                return n;
+            }
+        }
+        for (var i = 4; i < 100; i += 2) {
+            for (var m = 1; m < i; m++) {
+                for (var n = 1; n < i; n++) {
+                    if (i == zhishu(m) + zhishu(n)) {
+                        console.log(i + "     " + m + "   " + n);
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

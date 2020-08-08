@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 检查一个字符串是不是回文字符串
+        // 比如“我爱你爱我”是回文字符串。现在让用户输入一个字符串，你来检查它是不是回文字符串。
+
+        function huiwen(str) {
+            for (var start = 0, end = str.length - 1; start < end; start++, end--) {
+                if(str[start]!=str[end]){
+                   return false;
+                }
+            }
+            return true;
+        }
+        var wenzi=prompt('请输入字符串');
+        var a=huiwen(wenzi);
+        console.log(a);
+
+    </script>
+</body>
+
+</html>

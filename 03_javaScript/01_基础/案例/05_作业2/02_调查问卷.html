@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>请问您是平日入园还是周末入园?</p>
+    <label for="">
+        <input type="radio" id="pingri" name="date">平日
+        <input type="radio" id="zhoumo" name="date">周末
+    </label>
+    <p>请输入成年人数量<input type="text" id="old"></p>
+    <p>请输入儿童 数量<input type="text" id="children"></p>
+    <button id="btn">计算</button>
+    <h1 id="h1">票价总计：</h1>
+    <script>
+        var pingri = document.getElementById("pingri");
+        var zhoumo = document.getElementById("zhoumo");
+        var old = document.getElementById("old");
+        var children = document.getElementById("children");
+        var btn = document.getElementById("btn");
+        var h1 = document.getElementById("h1");
+        var cost = 0;
+        btn.onclick = function () {
+            if (pingri.checked) {
+                cost = 50 * parseInt(old.value) + 30 * parseInt(children.value);
+                h1.innerText = cost;
+            }
+
+            else {
+                cost = 80 * parseInt(old.value) + 60 * parseInt(children.value);
+                h1.innerText = cost;
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

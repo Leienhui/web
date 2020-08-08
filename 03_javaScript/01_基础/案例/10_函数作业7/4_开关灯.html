@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 5.	有15个灯编号为1~15，开始时灯都是关着的。第i个人把编号为i的倍数的灯的开关按下（开着的灯熄灭，关着的灯打开，i从1开始数）。一共有6个人，问最后有哪些灯开着。输出所有开着灯的编号。（中等难度，记得用数组）
+        // 注意：数组从1开始，所以第零个设为空
+        var arr1=[''];
+        for(var a=1;a<=15;a++){
+            arr1.push(false);
+        }
+        for(var i=1;i<=6;i++){
+            for(var j=1;j<=15;j++){
+                if(j%i==0){
+                    arr1[j]=!arr1[j];
+                }
+            }
+            console.log(arr1)
+        }
+        for(var k=0;k<arr1.length;k++){
+            if(arr1[k]){
+                console.log(k);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            margin: 50px auto;
+            width: 984px;
+            height: 608px;
+        }
+
+        .box .h1 {
+            width: 984px;
+            height: 46px;
+            color: rgb(65, 120, 202);
+            font-size: 30px;
+            line-height: 46px;
+            border-bottom: 1px solid #ccc;
+            border-top: 2px solid blue;
+
+
+        }
+
+        .box .h1 .span {
+            padding-left: 10px;
+            color: #ccc;
+            font-size: 20px;
+        }
+
+        .box .center {
+            width: 984px;
+            margin-bottom: 49px;
+            position: relative;
+
+        }
+
+        .box .center .left {
+            width: 420px;
+            padding-top: 11px;
+            float: left;
+        }
+
+        .box .center .left .title {
+            padding-left: 10px;
+            font-size: 16px;
+            line-height: 34px;
+            font-family: "微软雅黑";
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box .center .left .title .box1 {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -5px;
+
+        }
+
+        .box .center .left .title a {
+            float: left;
+            padding-left: 10px;
+            text-decoration: none;
+        }
+
+        .box .center .left ul {
+            width: 420px;
+        }
+
+        .box .center .left ul li {
+            list-style: none;
+            width: 410px;
+            font-size: 14px;
+            line-height: 27px;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .box .center .left ul li .box2 {
+            width: 6px;
+            height: 6px;
+            background-color: rgb(21, 89, 134);
+            top: 50%;
+            margin-top: -3px;
+            position: absolute;
+            left: 0;
+        }
+
+        .box .center .left ul li a {
+            text-decoration: none;
+        }
+
+        .box .center .center1 {
+            width: 240px;
+            height: 353px;
+            float: left;
+            padding-top: 19px;
+            padding-bottom: 10px;
+            margin-right: 34px;
+
+        }
+
+        .box .center .center1  h3 {
+            height: 20px;
+            border-left: 2px solid rgb(15, 57, 105);
+            padding-left: 10px;
+            color: rgb(15, 57, 105);
+            font-weight: 700;
+            font-family: "微软雅黑";
+            float: left;
+            font-style: 16px;
+            line-height: 20px;
+            margin-bottom: 5px;
+
+        }
+
+        .box .center .center1 .top {
+            height: 160px;
+            width: 240px;
+            float: left;
+            margin-bottom: 10px;
+        }
+
+        .box .center .center1 .top a img {
+            width: 240px;
+            height: 140px;
+        }
+
+        .box .center .center1 .top p {
+            width: 240px;
+            height: 20px;
+
+        }
+
+        .box .center .center1 .top p a {
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 20px;
+
+        }
+
+        .box .center .center1 .bottom {
+            width: 240px;
+            height: 118px;
+            float: left;
+            position: relative;
+        }
+
+        .box .center .center1 .bottom .imgleft {
+            width: 112px;
+            height: 118px;
+            margin-right: 16px;
+            float: left;
+        }
+
+        .box .center .center1 .bottom .imgright {
+            width: 112px;
+            height: 118px;
+            float: left;
+        }
+
+        .box .center .center1 .bottom div a {
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .box .center .center1 .bottom div p a {
+            font-size: 12px;
+            line-height: 14px;
+        }
+
+        .box .center .center1 .bottom div a img {
+            width: 112px;
+            height: 90px;
+        }
+        
+        .box .center .right{
+            width: 290px;
+            height: 334px;
+            padding-top: 19px;
+            position: relative;
+            float: left;
+        }
+        .box .center .right h3 {
+            height: 20px;
+            border-left: 2px solid rgb(15, 57, 105);
+            padding-left: 10px;
+            color: rgb(15, 57, 105);
+            font-weight: 700;
+            font-family: "微软雅黑";
+            float: left;
+            font-style: 16px;
+            line-height: 20px;
+            margin-bottom: 5px;
+
+        }
+        .box .center .right .rtop{
+            width: 290px;
+            height: 124px;  
+            position: relative;
+            float: left;
+        }
+        .box .center .right .rtop .left1{
+            width: 136px;
+            height: 124px;
+            float: left;
+            margin-right: 18px;
+        }
+        .box .center .right .rtop .right1{
+            width: 136px;
+            height: 124px;
+            float: left;
+        }
+        .box .center .right .rtop  div a{
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 14px;
+            padding: 3px 0px;
+        }
+        .box .center .right .rtop  div a img{
+           width: 136px;
+           height: 90px; 
+        }
+        .box .center .right .rbottom{
+            width: 290px;
+            float: left;
+            padding-top: 10px;
+        }
+        .box .center .right .rbottom p{
+            font-size: 14px;
+            line-height: 27px;
+            color: rgb(44, 46, 51);
+
+        }
+
+        .box .footer{
+            width: 984px;
+            height: 157px;
+            position: relative;
+            float: left;
+        }
+        .box .footer div {
+            width: 187px;
+            height: 157px;
+            float: left;
+            margin-right: 12px;
+        }
+        .box .footer div.last{
+            margin-right: 0;
+        }
+        .box .footer div p{
+            width: 187px;
+            height: 32px;
+            text-align: center;
+        }
+        .box .footer div p a{
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 32px;
+        }
+        .box .footer div a img{
+            width: 187px;
+            height: 125px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1 class="h1">娱乐<span class="span">ENTERTAINMENT\</span></h1>
+        <div class="center">
+            <div class="left">
+                <div class="title">
+                    <div class="box1"></div><a href="">哈哈哈哈</a>
+                </div>
+                <ul>
+                    <li>
+                        <div class="box2"></div><a href="">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</a>
+                    </li>
+                    <li>
+                        <div class="box2"></div><a href="">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</a>
+                    </li>
+                    <li>
+                        <div class="box2"></div><a href="">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</a>
+                    </li>
+                    <li>
+                        <div class="box2"></div><a href="">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</a>
+                    </li>
+                    <li>
+                        <div class="box2"></div><a href="">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</a>
+                    </li>
+
+                </ul>
+                <div class="title">
+                    <div class="box1"></div><a href="">噢噢噢噢哦哦</a>
+                </div>
+                <ul>
+                    <li>
+                        <div class="box2"></div><a href="">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</a>
+                    </li>
+                    <li>
+                        <div class="box2"></div><a href="">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</a>
+                    </li>
+                    <li>
+                        <div class="box2"></div><a href="">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</a>
+                    </li>
+                    <li>
+                        <div class="box2"></div><a href="">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</a>
+                    </li>
+                    <li>
+                        <div class="box2"></div><a href="">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="center1">
+                <h3>借记卡</h3>
+                <div class="top">
+                    <a href=""> <img src="../images/5.jpg" alt=""></a>
+                    <p><a href="">接电话多好多好多好</a></p>
+                </div>
+                <div class="bottom">
+                    <div class="imgleft">
+                        <a href=""><img src="../images/2.jpg" alt=""></a>
+                        <p><a href="">犯贱犯贱解放军附近酒店酒店</a></p>
+                    </div>
+                    <div class="imgright">
+                        <a href=""><img src="../images/2.jpg" alt=""></a>
+                        <p><a href="">犯贱贱解放军附近酒店酒店</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <h3>借记卡</h3>
+                <div class="rtop">
+                    <div class="left1">
+                        <a href=""> <img src="../images/5.jpg" alt=""></a>
+                    <p><a href="">接电话多好哦哦哦哦哦哦多好多好</a></p>
+                    </div>
+                    <div class="right1">
+                        <a href=""> <img src="../images/5.jpg" alt=""></a>
+                    <p><a href="">接电话多好哦哦哦哦哦多好多好</a></p></div>
+                </div>
+                <div class="rbottom">
+                    <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈红红火火恍恍惚惚哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈红红火火恍恍惚惚哈哈哈哈哈哈哈哈哈哈哈
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div><a href=""><img src="../images/4.jpg" alt=""></a><p><a href="">哈哈哈哈哈啊哈</a></p></div>
+            <div><a href=""><img src="../images/4.jpg" alt=""></a><p><a href="">哈哈哈哈哈啊哈</a></p></div>
+            <div><a href=""><img src="../images/4.jpg" alt=""></a><p><a href="">哈哈哈哈哈啊哈</a></p></div>
+            <div><a href=""><img src="../images/4.jpg" alt=""></a><p><a href="">哈哈哈哈哈啊哈</a></p></div>
+            <div class="last"><a href=""><img src="../images/4.jpg" alt=""></a><p><a href="">哈哈哈哈哈啊哈</a></p></div>
+        </div>
+    </div>
+</body>
+
+</html>

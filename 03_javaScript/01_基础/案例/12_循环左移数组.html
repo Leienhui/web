@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 题目：数组['A', 'B', 'C', 'D', 'E', 'F']现在让你循环左移n位，由用户输入n。
+        // 比如循环左移1位，是['B', 'C', 'D', 'E', 'F', 'A']
+        // 比如循环左移2位，是['C', 'D', 'E', 'F', 'A', 'B']
+        var arr = ['A', 'B', 'C', 'D', 'E', 'F'];
+        var n = parseInt(prompt("请输入一个整数"));
+        var a = n % arr.length;
+        arr.splice(arr.length-2, 0, ...arr.splice(0, a));
+        console.log(arr);
+    </script>
+</body>
+
+</html>

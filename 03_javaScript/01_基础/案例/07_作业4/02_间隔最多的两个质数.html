@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1~1000中，间隔最多的两个质数是几？
+        var lastzhishu = 2;
+        var maxlength = 0;
+
+        for (var i = 1; i <= 1000; i++) {
+            var length = 0;
+            for (var j = 1; j <= i; j++) {
+                if (i % j == 0) {
+                    length++;
+                }
+            }
+            if (length == 2) {
+                // 判断相隔多少
+                if (maxlength <=i - lastzhishu) {
+                    maxlength = i - lastzhishu;
+                    console.log(lastzhishu + '~' + i + '相距' + maxlength)
+                } else {
+                    var b=i-lastzhishu;
+                    console.log(lastzhishu + '~' + i + '相距' + b)
+                }
+                lastzhishu = i;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 6.	数组[1, 2, 4, -3, 2, 3, 1, -4, -2, 2, 4, -5]中有没有任意连续3项相加为0？如果有，则输出这3项。   
+        var arr=[1, 2, 4, -3, 2, 3, 1, -4, -2, 2, 4, -5];
+        // var arr = [1, -1, 0, 2, 3, 4, 5, 5];
+        var a = parseInt(Math.random() * (arr.length - 3));
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = i; j < i+3; j++) {
+                sum+=arr[j];
+            }
+            if(sum==0){
+            console.log(arr[i] + "    " + arr[i + 1] + "    " + arr[i + 2]);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 300px;
+        height: 300px;
+        margin: 50px auto;
+    }
+    .box .tab button.cur{
+        background-color: rgb(216, 20, 20);
+    }
+    .box .content p{
+        display: none;
+    }
+    .box .content p.cur{
+        display: block;
+    }
+</style>
+
+
+<body>
+    <div class="box">
+        <div class="tab">
+           <button class="cur">A</button>
+           <button>B</button>
+           <button>C</button>
+        </div>
+        <div class="content">
+            <p class="cur"> AAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+            <p> BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</p>
+            <p> CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</p>
+        </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var idx=0
+        $('.tab button').click(function(){
+            $(this).addClass('cur').siblings().removeClass('cur');
+            var idx=$(this).index();
+            $('.content p').eq(idx).addClass('cur').siblings().removeClass('cur');
+        })
+    </script>
+</body>
+
+</html>

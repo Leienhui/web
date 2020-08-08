@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  给你一个数组[0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11]，其中有一个数字缺失，请把缺失的数字找出来。
+        var arr = [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11];
+        var i = 0;
+        while (true){
+            if(arr[i+1]-arr[i]!=1){
+                console.log("缺失数是"+(arr[i]+1));
+                break;
+            }
+            i++;
+
+        }
+
+    </script>
+</body>
+
+</html>

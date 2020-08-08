@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        .box2 {
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1" id="box1">
+        <p id="p1">段落一</p>
+        <p>段落2</p>
+    </div>
+    <div class="box2" id="box2">
+        <p id="p3">段落3</p>
+        <p>段落4</p>
+    </div>
+    <button id="btn">移动</button>
+    <script>
+        var box1 = document.getElementById('box1');
+        var box2 = document.getElementById('box2');
+        var p1 = document.getElementById('p1');
+        var p3 = document.getElementById('p3');
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            // 克隆出来的节点都是孤儿节点，
+            var p = p1.cloneNode(true);
+            //    孤儿节点上树，注意：原盒子中的p1还存在。只是多多复制了一份
+            box2.appendChild(p);
+        }
+    </script>
+</body>
+
+</html>

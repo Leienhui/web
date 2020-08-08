@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            margin: 50px auto;
+            width: 700px;
+            height: 500px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box .list {
+            list-style: none;
+            position: relative;
+            width: 35000px;
+            height: 500px;
+        }
+
+        .box .show {
+            width: 700px;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            z-index: 666;
+        }
+
+        .box .list li {
+            width: 700px;
+            height: 500px;
+            float: left;
+        }
+
+        .box .list li.cur {}
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box .btn {
+            width: 700px;
+            height: 500px;
+            position: absolute;
+            top: 0;
+        }
+
+        .box .btn .leftBtn {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            margin-top: -15px;
+            background-color: yellow;
+            z-index: 999;
+            border-radius: 50%;
+            text-align: left;
+            line-height: 30px;
+            font-size: 20px;
+
+
+        }
+
+        .box .btn .rightBtn {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            margin-top: -15px;
+            background-color: yellow;
+            z-index: 999;
+            border-radius: 50%;
+            text-align: right;
+            line-height: 30px;
+            font-size: 20px;
+        }
+
+        .box .circles {
+            width: 150px;
+            height: 20px;
+            list-style: none;
+            z-index: 999;
+            position: absolute;
+            top: 460px;
+            left: 530px;
+
+        }
+
+        .box .circles li {
+            width: 20px;
+            height: 20px;
+            background-color: rgb(39, 150, 29);
+            border-radius: 50%;
+            margin-right: 10px;
+            float: left;
+        }
+
+        .box .circles li.cur {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="list">
+            <li class="cur"><img src="../images/1.jpg" alt=""></li>
+            <li><img src="../images/2.jpg" alt=""></li>
+            <li><img src="../images/4.jpg" alt=""></li>
+            <li><img src="../images/5.jpg" alt=""></li>
+            <li><img src="../images/6.jpg" alt=""></li>
+        </ul>
+        <div class="show">
+
+        </div>
+        <div class="btn">
+            <p class="leftBtn">《</p>
+            <p class="rightBtn">》</p>
+        </div>
+        <ul class="circles">
+            <li class="cur"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var idx = 0;
+        $('.list li').eq(0).clone().appendTo('.list');
+        $('.btn .rightBtn').click(function () {
+            if ($('.list').is(':animated') || $('.circles li').is(':animated')) {
+                // return一个空，表示立即结束这个函数，不做后面的语句了
+                return;
+            }
+            idx++;
+            $('.list').animate({ 'left': -700 * idx }, 1000, function () {
+                if (idx > 4) {
+                    idx = 0
+                    $('.list').css('left', 0);
+                }
+            });
+            $('.circles li').eq(idx % 5).addClass('cur').siblings().removeClass('cur');
+        });
+        $('.btn .leftBtn').click(function () {
+            if ($('.list').is(':animated') || $('.circles li').is(':animated')) {
+                // return一个空，表示立即结束这个函数，不做后面的语句了
+                return;
+            }
+            if (idx <= 0) {
+                idx = 5;
+                $('.list').css('left', -idx * 700);
+            }
+            idx--;
+            $('.list').animate({ 'left': -700 * idx }, 1000);
+            $('.circles li').eq(idx % 5).addClass('cur').siblings().removeClass('cur');
+        });
+        // 自动走
+        var flag = true;
+        setInterval(function () {
+            if (flag) {
+                $('.btn .rightBtn').trigger('click');
+            }
+        }, 1500)
+        $('.show').mouseenter(function () {
+            flag = false;
+        });
+        $('.show').mouseleave(function () {
+            flag = true;
+        })
+    </script>
+</body>
+
+</html>

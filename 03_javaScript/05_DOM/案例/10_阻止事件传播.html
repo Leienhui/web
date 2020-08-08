@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 100%;
+            background-color: #ccc;
+            position: absolute;
+            right: -300px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点我</button>
+    <div class="box" id="box"></div>
+    <script>
+        var btn=document.getElementById('btn');
+        var box=document.getElementById('box');
+        // 由于在冒泡事件中，btn也是属于document的，所以如果不阻止事件继续传播，那么点击按钮的时候执行的函数还是下面那个
+        btn.onclick=function(e){
+            // 阻止事件继续传播，事件也不会往document上传播了
+            e.stopPropagation();
+            box.style.right=0;
+        }
+        document.onclick=function(){
+            box.style.right=-300+"px";
+        }
+        box.onclick=function(e){
+            e.stopPropagation();
+        }
+        
+        // btn.addEventListener('click',function (){
+        //     box.style.right=0;
+        // },true);
+        // document.addEventListener('click',function (){
+        //     box.style.right=-300+"px";
+        // },true)
+        // box.addEventListener('click',function (){
+        //     box.style.right=0+"px";
+        // },true)
+    </script>
+</body>
+</html>

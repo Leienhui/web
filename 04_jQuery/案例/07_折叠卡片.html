@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            margin: 40px auto;
+            width: 300px;
+            height: 300px;
+            cursor: pointer;
+        }
+        .box h3.cur{
+            background-color: aqua;
+        }
+        .box .inn{
+            display: none;
+        }
+        .box .inn.cur{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3 class="cur">1</h3>
+        <div class="inn cur">
+            1法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+        </div>
+        <h3>2</h3>
+        <div class="inn">
+            2法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+        </div>
+        <h3>3</h3>
+        <div class="inn">
+            3法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+        </div>
+        <h3>4</h3>
+        <div class="inn">
+            4法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+            法国红酒看来风格和尽快发给v会比较难看风格和健康非常高v会比较客观v环保节能
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('.box h3').click(function(){
+            // 判断下一个是不是展开的
+           if( !$(this).next().is(':visible')){
+               $('.inn').slideUp();
+            $(this).next().slideDown();
+            $('h3').removeClass('cur');
+            $(this).addClass('cur');
+
+           }
+        })
+    </script>
+</body>
+
+</html>

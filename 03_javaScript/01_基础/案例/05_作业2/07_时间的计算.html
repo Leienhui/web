@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 某一秒距离2020年还有84545362秒，请问相当于还有几天？零几个小时？零几分钟？零几秒？这题不需要用户输入，直接告诉老师答案即可。
+
+        var a = 84545362;
+
+        var tianshu = parseInt(a / (60 * 60 * 24));
+        var xiaoshi = parseInt(a % (60 * 60 * 24) / (60 * 60));
+        var fenzhong = parseInt((a % (60 * 60 * 24) - xiaoshi * 60 * 60) / 60)
+        var miaoshu = a % 60;
+        console.log(tianshu + '天' + xiaoshi + '时' + fenzhong + '分钟' + miaoshu + '秒');
+        alert(tianshu + '天' + xiaoshi + '时' + fenzhong + '分钟' + miaoshu + '秒')
+    </script>
+</body>
+</html>

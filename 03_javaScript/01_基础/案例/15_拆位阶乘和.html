@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 寻找各个数位的阶乘和等于它本身的三位数
+        function jiecheng(n){
+            var ji=1;
+            for(var i=1;i<=n;i++){
+                ji*=i;
+            }
+            return ji;
+        }
+        for(var j=100;j<1000;j++){
+            var arr=j.toString().split('');
+            var sum=0;
+            for(var m=0;m<3;m++){
+               sum+=jiecheng(Number(arr[m]));
+            }
+            if(sum==j){
+                console.log(j);
+            }
+        }
+        
+    </script>
+</body>
+</html>

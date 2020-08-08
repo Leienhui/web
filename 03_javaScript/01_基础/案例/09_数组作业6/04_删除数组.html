@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 4.	18个孩子站成一圈，依次从1开始报数，喊道3的倍数的出局。所以第一次报数出局的有3号、6号、9号、12号、15号和18号。剩下的12个孩子，继续从19开始喊，还是喊道3的倍数的出局。依次往下进行。请问，最后剩下的1个孩子，它是最早的几号？
+        var arr = [];
+        for (var i = 1; i < 19; i++) {
+            arr.push(i);
+        }
+
+        var baohao=1;
+        while (arr.length >1) {
+            for (var j = 0; j < arr.length; j++) {
+                if (baohao % 3 == 0) {
+                    arr.splice(j, 1);
+                    j--;
+                }
+                baohao++;
+            }
+        } 
+        console.log(arr);
+
+
+    </script>
+</body>
+
+</html>

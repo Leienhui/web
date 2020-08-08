@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input id="input1" type="text" value="请输入第一个数" onfocus="javascript:if(this.value=='请输入第一个数') this.value='' ;">
+    <input id="input2" type="text" value="请输入第二个数" onfocus="javascript:if(this.value=='请输入第二个数') this.value='' ;">
+    <button id="btn">最大公约数</button>
+    
+    <script>
+        // 2.	用户输入两个数字，弹出这两个数字的最大公约数
+        var  input1=document.getElementById("input1");
+        var  input2=document.getElementById("input2");
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+            var shu1=Number(input1.value);
+            var shu2=Number(input2.value);
+            var xiao=0;
+            if(shu1>shu2){
+                xiao=shu2;
+            }
+            else{
+                xiao=shu1;
+            }
+            while(true){
+                if(shu1%xiao==0&&shu2%xiao==0){
+                   alert("最大公约数是"+xiao);
+                    break;
+                }
+                xiao--;
+            }
+        }
+    </script>
+</body>
+</html>

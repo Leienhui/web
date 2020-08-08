@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 5.	用户输入一个字符串，比如“我我我我爱爱爱爱爱爱爱爱爱爱爱爱爱爱你你”，弹出连续重复最多的字。
+        var str = "我我我我爱爱爱爱爱爱爱爱爱爱爱爱爱爱你你";
+        var i = 0;
+        var j = 0;
+        var wenzi = "";
+        var len = 0;
+        var max = 0;
+        var n = 0;
+        // while (n < str.length) {
+        //     if (str[i] == str[j]) {
+        //         j++;
+        //         len++;
+        //     }
+        //     else {
+        //         if (max < len) {
+        //             max = len + 1;
+        //             wenzi = str[i]
+        //         }
+        //         else {
+        //             max = max;
+        //             wenzi = str[i - 1]
+        //         }
+        //         i = j;
+        //         j++
+        //         len = 0;
+        //     }
+        //     n++;
+        // }
+        while (i <str.length) {
+            j++;
+            if (str[i] != str[j]) {
+                //    wenzi=str[i];
+                len = j - i;
+                if (max < len) {
+                    wenzi = str[i];
+                    max=len;
+                } else {
+                    wenzi = str[i - 1];
+                }
+                i = j;
+                len = 0;
+            }
+        }
+        console.log(max + "    " + wenzi);
+
+    </script>
+</body>
+</html>

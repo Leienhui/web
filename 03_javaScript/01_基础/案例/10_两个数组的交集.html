@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr1 = [1, 2, 3, 45,'hahah' , 56, 67, 8, 9, 100, 11];
+        var arr2 = [12, 2, 32, 45, 'hahah', 561, 67, 81, 9, 100, 111,9000];
+        var short = 0;
+        var same = [];
+        if (arr1.length > arr2.length) {
+            short = arr2.length;
+        } else {
+            short = arr1.length;
+        }
+        for (var i = 0; i < short; i++) {
+            if (arr1.includes(arr2[i])) {
+                same.push(arr2[i]);
+            }
+        }
+        console.log(same);
+    </script>
+</body>
+
+</html>

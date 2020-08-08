@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            margin: 100px auto;
+            width: 250px;
+            height: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+       
+        .box .tip{
+            width: 120px;
+            height: 50px;
+            position: absolute;
+            bottom: 20px;
+            right: 5px;
+            line-height: 20px;
+            background-color: aqua;
+            border-radius: 5px;
+            display: none;
+        }
+        .box .checkbox{
+            position: absolute;
+            bottom: 20px;
+            left: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p><input type="text"></p>
+        <p><input type="text"></p>
+        <label for="" class="checkbox">
+            <input type="checkbox">下次自动登录
+        </label>
+        <p class="tip">在网吧登录请不要点击这个按钮</p>
+        <script>
+            var checkbox=document.getElementsByClassName('checkbox');
+            var tip=document.getElementsByClassName('tip');
+            checkbox[0].onmouseenter=function(){
+                tip[0].style.display='block';
+            }
+            checkbox[0]. onmouseleave=function(){
+                tip[0].style.display='';
+            }
+            
+        </script>
+    </div>
+</body>
+
+</html>

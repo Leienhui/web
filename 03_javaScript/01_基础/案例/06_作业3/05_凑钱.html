@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //用1元纸币、2元纸币、5元纸币，凑出200块钱，在控制台列出所有凑法。比如：
+        // 200张1元； 
+        // 100张1元，50张2元；  
+        for (var one = 0; one <= 200; one++) {
+            for (var two = 0; two <= 100; two++) {
+                for (var five = 0; five <= 40; five++) {
+                    if (one + two * 2 + five * 5 == 200) {
+                        console.log(one + '张1元        ' + two + ' 张2元   ' + five + '张5元')
+                    }
+                }
+
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

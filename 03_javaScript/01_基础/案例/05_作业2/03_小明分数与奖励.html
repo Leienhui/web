@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="请输入您的数学成绩" onfocus="javascript:if(this.value=='请输入您的数学成绩')this.value='';" id="input1">
+    <input type="text" value="请输入您的英语成绩" onfocus="javascript:if(this.value=='请输入您的英语成绩')this.value='';" id="input2">
+    <button id="btn">显示奖励</button>
+    <h1 id="h1"></h1>
+    <script>
+        // 假设小明的数学成绩达到80分，那么他会得到苹果手机。如果英语成绩达到90分，他会得到笔记本电脑。如果两个成绩都没有达到，则会挨打。请做两个输入框，分别输入数学成绩和英语成绩，点击按钮后，显示小明的遭遇。
+
+        var input1 = document.getElementById("input1");
+        var input2 = document.getElementById("input2");
+        var h1 = document.getElementById("h1");
+        var btn = document.getElementById("btn");
+        var jiangli="";
+        btn.onclick = function () {
+            jiangli="";
+            var math = parseFloat(input1.value);
+            var English = parseFloat(input2.value);
+            if(math>=80){
+                jiangli="苹果手机";
+                h1.innerHTML = jiangli;
+            }
+            if(English>=90){
+                jiangli+="笔记本电脑";
+                h1.innerHTML = jiangli;
+
+            }
+            if(math<80&&English<90){
+                jiangli="挨打";
+                h1.innerHTML = jiangli;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

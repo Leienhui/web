@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        li{
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>压力1<button>删除</button></li>
+        <li>压力12<button>删除</button></li>
+        <li>压力13<button>删除</button></li>
+        <li>压力14<button>删除</button></li>
+        <li>压力15<button>删除</button></li>
+    </ul>
+    <!-- 引包 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+       $('#list').delegate('button','click',function(){
+           $(this).parent().remove();
+       })
+    </script>
+</body>
+</html>
