@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input1" value="请输入工作年限">
+    <input type="text" id="input2" value="请输入月薪">
+    <button id="btn">查看</button>
+    <script>
+        // 8.	【条件分支考察】某个公司的年终奖发放是这样的规定：如果这个员工工作已经满3年，则年终奖为月薪的2.4倍，但是如果月薪本身超过了24000，则固定发放1个月的工资当做年终奖；如果员工工作2、3年，则年终奖为月薪1.6倍，但是如果月薪本身没有达到12000，则年终奖是月薪的2.4倍。工作1年的没有年终奖。请用户输入自己的工作年数，以及月薪，计算年终奖。
+        var input1 = document.getElementById("input1")
+        var input2 = document.getElementById("input2")
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var time = parseInt(input1.value);
+            var money = parseInt(input2.value);
+            if ((time >= 3 && money < 24000)||(time >= 2 && time < 3 && money < 12000)) {
+                var yearEndBonus = 2.4 * money;
+                alert("年终奖为：" + yearEndBonus);
+
+            }
+            else if (time >= 3 && money >= 24000) {
+                var yearEndBonus = money;
+                alert("年终奖为：" + yearEndBonus);
+
+            }
+            else if (time >= 2 && time < 3 && money >= 12000) {
+                var yearEndBonus = 1.6 * money;
+                alert("年终奖为：" + yearEndBonus);
+            }
+            else {
+                alert("年终奖为：0");
+
+            }
+
+        }
+        input1.onfocus = function () {
+            if (this.value == '请输入工作年限') {
+                this.value = '';
+            }
+        }
+        input2.onfocus = function () {
+            if (this.value == '请输入月薪') {
+                this.value = '';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

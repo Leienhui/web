@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="请输入员工数字" id="input1">
+    <input type="text" value="请输入老板数字" id="input2">
+    <button id="btn">查看</button>
+    <h1 id="h1"></h1>
+    <script>
+        var input1 = document.getElementById("input1");
+        var input2 = document.getElementById("input2");
+        var h1 = document.getElementById("h1");
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var employee = parseInt(input1.value);
+            var employer = parseInt(input2.value);
+            var bai = parseInt(employee / 100);
+            var shi = parseInt((employee % 100) / 10);
+            var ge = parseInt((employee % 100) % 10);
+            var _bai = parseInt(employer / 100);
+            var _shi = parseInt((employer % 100) / 10);
+            var _ge = parseInt((employer % 100) % 10);
+            if (employee == employer) {
+                h1.innerHTML = "奖励现金5000元";
+            } else if (bai + shi * 10 + ge * 100 == employer) {
+                h1.innerHTML = "奖励现金2000元";
+
+            } else if ((shi == _ge && ge == _bai && bai == _shi) || (ge == _bai && shi == _ge && bai == _shi) || (ge == _ge && shi == _bai && bai == _shi) || (bai == _bai && ge == _shi && shi == _ge)) {
+                h1.innerHTML = "奖励现金1000元";
+
+            } else {
+                h1.innerHTML = "谢谢参与";
+            }
+
+
+        }
+        input1.onfocus = function () {
+            if (this.value == '请输入员工数字') {
+                this.value = '';
+            }
+        }
+        input2.onfocus = function () {
+            if (this.value == '请输入老板数字') {
+                this.value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

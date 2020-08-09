@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="radio" value="15" name="fen" id="big">大碗米粉 15元
+    <input type="radio" value="12" name="fen" id="small">小碗米粉 12元
+    <p>
+        <input type="checkbox" value="3">加鸡蛋 3元
+    </p>
+    <p>
+        <input type="checkbox" value="4">加火腿 4元
+    </p>
+    <p>
+        <input type="checkbox" value="8">加鸡腿 8元
+    </p>
+    <p>
+        <input type="checkbox" value="50">加考拉肉 50元
+    </p>
+    <button id="btn">总计:</button>
+    <h1 id="h1"></h1>
+    <script>
+        var big = document.getElementById("big");
+        var small = document.getElementById("small");
+        var btn = document.getElementById("btn");
+        var h1 = document.getElementById("h1");
+        var input = document.getElementsByTagName("input");
+        btn.onclick = function () {
+            var sum = 0;
+            if (big.checked) {
+                sum = Number(big.value);
+            }
+            if (small.checked) {
+                sum = Number(small.value);
+            }
+            var allValue = 0;
+            for (var i = 0; i < input.length; i++) {
+                if (input[i].type == 'checkbox' && input[i].checked) {
+                    var value = Number(input[i].value);
+                    allValue += value;
+                }
+            }
+            sum += allValue;
+            h1.innerHTML = "您消费"+sum+"元";
+        }
+    </script>
+</body>
+
+</html>

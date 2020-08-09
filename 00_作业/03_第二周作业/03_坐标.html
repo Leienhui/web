@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="请输入x1" id="input1">
+    <input type="text" value="请输入y1" id="input2">
+    <input type="text" value="请输入x2" id="input3">
+    <input type="text" value="请输入y2" id="input4">
+    <button id="btn">距离</button>
+    <h1 id="h1"></h1>
+    <script>
+        // 【基本程序考察】提示用户输入两个点的坐标，比如(100, 200)和(300, 150)，现在你要用4个input框来接收x1、y1、x2、y2，就是两个点的坐标了。就比如说，用户在第一框输入100，第二个框输入200，第三个框输入300，第四个框输入150。用户不输入圆括号。请计算两点间的距离，距离结果四舍五入到2位小数（如何保留两位小数，老师会下发视频讲解）。公式：  距离 = √(（x2-x1）^2+（y2-y1）^2 )
+        var input1 = document.getElementById("input1");
+        var input2 = document.getElementById("input2");
+        var input3 = document.getElementById("input3");
+        var input4 = document.getElementById("input4");
+        var h1 = document.getElementById("h1");
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var x1 = parseInt(input1.value);
+            var y1 = parseInt(input2.value);
+            var x2 = parseInt(input3.value);
+            var y2 = parseInt(input4.value);
+            var square = Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2);
+            var distance = Math.round(Math.sqrt(square)*100)/100;
+            h1.innerHTML = distance;
+        }
+        input1.onfocus = function () {
+            if (this.value == '请输入x1') {
+                this.value = '';
+            }
+        }
+        input2.onfocus = function () {
+            if (this.value == '请输入y1') {
+                this.value = '';
+            }
+        }
+        input3.onfocus = function () {
+            if (this.value == '请输入x2') {
+                this.value = '';
+            }
+        }
+        input4.onfocus = function () {
+            if (this.value == '请输入y2') {
+                this.value = '';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

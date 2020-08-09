@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="请输入数字" id="input">
+    <button id="btn">查看</button>
+    <h1 id="h1"></h1>
+    <script>
+        // 9.	【条件分支考察】请用户输入一个数字，弹出下面四种结果中的一种
+        // ① “这个数字既能被5整除，也能被6整除”
+        // ② “这个数字不能被5整除，但能被6整除”
+        // ③ “这个数字不能被6整除，但能被5整除”
+        // ④ “这个数字既不能被6整除，也不能被5整除”
+
+        var input = document.getElementById("input");
+        var h1 = document.getElementById("h1");
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var value = parseInt(input.value);
+            if (value % 5 == 0 && value % 6 == 0) {
+                h1.innerHTML = "这个数字既能被5整除，也能被6整除";
+            } else if (value % 5 != 0 && value % 6 == 0) {
+                h1.innerHTML = "这个数字不能被5整除，但能被6整除";
+
+            } else if (value % 5 == 0 && value % 6 != 0) {
+                h1.innerHTML = "这个数字不能被6整除，但能被5整除";
+
+            } else {
+                h1.innerHTML = "这个数字既不能被6整除，也不能被5整除";
+            }
+
+        }
+        input.onfocus = function () {
+            if (this.value == '请输入数字') {
+                this.value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

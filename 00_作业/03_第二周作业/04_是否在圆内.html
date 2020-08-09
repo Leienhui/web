@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="请输入x1" id="input1">
+    <input type="text" value="请输入y1" id="input2">
+    <input type="text" value="请输入x2" id="input3">
+    <input type="text" value="请输入y2" id="input4">
+    <input type="text" value="请输入半径" id="input5">
+    <button id="btn">查看</button>
+    <h1 id="h1"></h1>
+    <script>
+        // 4.	【条件分支考察】请用户输入一个点的坐标(x1，y1)，再请用户输入一个圆心坐标（x2, y2），以及圆的半径r（本题一共是5个input框），请编程计算这个点是否在圆内。如何知道点是否在圆内呢？只需啊哟判断(x1,y1)到圆心(x2,y2)的距离是否小于半径，如果小于半径，就说明在圆内，否则不在圆内。如何计算两点间距离呢？呵呵，看第三题。
+        var input1 = document.getElementById("input1");
+        var input2 = document.getElementById("input2");
+        var input3 = document.getElementById("input3");
+        var input4 = document.getElementById("input4");
+        var input5 = document.getElementById("input5");
+        var h1 = document.getElementById("h1");
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var x1 = parseInt(input1.value);
+            var y1 = parseInt(input2.value);
+            var x2 = parseInt(input3.value);
+            var y2 = parseInt(input4.value);
+            var r = parseInt(input5.value);
+            var square = Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2);
+            var distance = Math.round(Math.sqrt(square)*100)/100;
+            if(distance >= r){
+                h1.innerHTML='不在圆内';
+            }
+            else{
+                h1.innerHTML='在圆内';
+            }
+        }
+        input1.onfocus = function () {
+            if (this.value == '请输入x1') {
+                this.value = '';
+            }
+        }
+        input2.onfocus = function () {
+            if (this.value == '请输入y1') {
+                this.value = '';
+            }
+        }
+        input3.onfocus = function () {
+            if (this.value == '请输入x2') {
+                this.value = '';
+            }
+        }
+        input4.onfocus = function () {
+            if (this.value == '请输入y2') {
+                this.value = '';
+            }
+        }
+        input5.onfocus = function () {
+            if (this.value == '请输入半径') {
+                this.value = '';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

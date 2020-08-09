@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="radio" id="boy" name="sex" value="男">男
+    <input type="radio" id="girl" name="sex" value="女">女
+    <p>请输入年龄</p>
+    <p><input type="text" id="input1"></p>
+    <h1 id="h1"></h1>
+    <button id="btn">查看</button>
+    <script>
+        var input1 = document.getElementById('input1');
+        var boy = document.getElementById('boy');
+        var girl = document.getElementById('girl');
+        var btn = document.getElementById('btn');
+        var h1 = document.getElementById('h1');
+        btn.onclick = function () {
+            age=Number(input1.value);
+            if (boy.checked == true && age >= 18) {
+                var price = 100;
+                h1.innerHTML=price;
+            } else if (boy.checked == true && age < 18&&age>3) {
+                var price = 30;
+                h1.innerHTML=price;
+
+            } else if (girl.checked == true && age >= 18) {
+                var price = 90;
+                h1.innerHTML=price;
+
+            } else if (girl.checked == true && age < 18&&age>3) {
+                var price = 20;
+                h1.innerHTML=price;
+
+            }
+            else {
+                var price = 0;
+                h1.innerHTML=price;
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

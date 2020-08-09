@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="请输入年份" id="input1">
+    <input type="text" value="请输入月份" id="input2">
+    <button id="btn">查看</button>
+    <h1 id="h1"></h1>
+    <script>
+        // 6.	【条件分支考察】请输入输入年份和月份（共两个input框），弹出这个月份的总天数，注意考虑闰年的情况。比如用户年份输入2020，月份输入7，弹出31天。用户输入年份2020，月份2，弹出29天。
+        var input1 = document.getElementById("input1");
+        var input2 = document.getElementById("input2");
+
+        var h1 = document.getElementById("h1");
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var year = parseInt(input1.value);
+            var month = parseInt(input2.value);
+            if ((year % 4 == 0 && year % 100 != 0 || year % 100 == 0 && year % 400 == 0) && month == 2) {
+                h1.innerHTML = '29天';
+            } else {
+                if (month == 2) {
+                    h1.innerHTML = '28天';
+
+                }
+                else if (month == 4 || month == 6 || month == 9 || month == 11) {
+                    h1.innerHTML = '30天';
+
+                } else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+                    h1.innerHTML = '31天';
+
+                }
+                else {
+                    h1.innerHTML = '月份错误';
+                }
+            }
+
+        }
+        input1.onfocus = function () {
+            if (this.value == '请输入年份') {
+                this.value = '';
+            }
+        }
+        input2.onfocus = function () {
+            if (this.value == '请输入月份') {
+                this.value = '';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

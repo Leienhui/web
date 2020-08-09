@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //3.	多次弹出prompt框接收用输入的学生成绩，如果结束输入，就要输入end单词。弹出这些学生的平均分。
+        // 解释一下：程序一上来就弹出prompt框，提示“请输入1号学生成绩”；输入完毕之后又会弹出一个prompt框，提示“请输入2号学生成绩” ”；输入完毕之后又会弹出一个prompt框，提示“请输入3号学生成绩”……依次类推。如果不想输入了，输入一个end单词，就会弹出刚才输入的学生的平均分。
+        var sum = 0;
+        var i = 0;
+        while (true) {
+            i++;
+            var a = prompt('请输入' + i + '号学生成绩');
+            if (a == 'end') {
+                alert(sum / (i - 1));
+                break;
+            } else {
+                sum += parseInt(a);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="请输入当前摄氏温度" id="input">
+    <button id="btn">转华氏</button>
+    <h1 id="h1"></h1>
+    <script>
+        // 用户输入摄氏温度（用input框），请转为华氏温度，转换公式自己上网查询。
+        // 华氏 = 9×摄氏 /5+32。
+        var input = document.getElementById("input");
+        var h1 = document.getElementById("h1");
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var value = parseInt(input.value);
+            var F = 9 * value / 5 + 32;
+            h1.innerHTML = Math.round(F);
+        }
+        input.onfocus = function () {
+            if (this.value == '请输入当前摄氏温度') {
+                this.value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

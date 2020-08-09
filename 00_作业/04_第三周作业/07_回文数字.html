@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <button id="btn">查看</button>
+    <h1 id="h1"></h1>
+    <script>
+        var input = document.getElementById('input');
+        var btn = document.getElementById('btn');
+        var h1 = document.getElementById('h1');
+        btn.onclick = function () {
+            value = input.value;
+            var flag = true;
+            for (var start = 0, end = value.length - 1; end > start; start++, end--) {
+                if (value[start] != value[end]) {
+                    flag = false;
+                    h1.innerHTML = value + "不是回文字符串";
+
+                }
+            }
+            if (flag) {
+                h1.innerHTML = value + "是回文字符串";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="请输入值1" id="input1">
+    <input type="text" value="请输入值2" id="input2">
+    <input type="text" value="请输入值3" id="input3">
+    <button id="btn">查看</button>
+    <script>
+        // 条件分支考察】请用户输入三个数字（共三个input框），通过书写if语句给这三个数字排序，从小到大排序，并alert()出来。注意，不能使用数组的sort排序（还没有学），就是if语句纯排序，大家自己思考。
+        var input1 = document.getElementById("input1");
+        var input2 = document.getElementById("input2");
+        var input3 = document.getElementById("input3");
+        var h1 = document.getElementById("h1");
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var value1 = parseInt(input1.value);
+            var value2 = parseInt(input2.value);
+            var value3 = parseInt(input3.value);
+            if (value1 < value2) {
+                var temp = value1;
+                value1 = value2;
+                value2 = temp;
+            }
+            if (value2 < value3) {
+                var temp = value2;
+                value2 = value3;
+                value3 = temp;
+            }
+            if (value1 < value2) {
+                var temp = value1;
+                value1 = value2;
+                value2 = temp;
+            }
+            alert(value3 + "< " + value2 + " <" + value1);
+
+        }
+
+        input1.onfocus = function () {
+            if (this.value == '请输入值1') {
+                this.value = '';
+            }
+        }
+        input2.onfocus = function () {
+            if (this.value == '请输入值2') {
+                this.value = '';
+            }
+        }
+        input3.onfocus = function () {
+            if (this.value == '请输入值3') {
+                this.value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
