@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            margin: 50px auto;
+            /* 让表格边框变成单线的 */
+            border-collapse: collapse;
+            background-color: #333;
+        }
+
+        td {
+            border: 1px solid #ccc;
+            width: 30px;
+            height: 30px;
+        }
+
+        td.c1 {
+            background: -webkit-linear-gradient(bottom right, rgb(39, 169, 189), rgb(45, 79, 182));
+        }
+
+        td.c2 {
+            background: -webkit-linear-gradient(bottom right, rgb(172, 132, 177), rgb(73, 88, 133));
+        }
+
+        td.c3 {
+            background: -webkit-linear-gradient(bottom right, rgb(155, 59, 80), rgb(18, 31, 71));
+        }
+
+        td.c4 {
+            background: -webkit-linear-gradient(bottom right, rgb(90, 7, 115), rgb(45, 79, 182));
+        }
+
+        td.c5 {
+            background: -webkit-linear-gradient(bottom right, rgb(103, 16, 52), rgb(45, 79, 182));
+        }
+
+        td.c6 {
+            background: -webkit-linear-gradient(bottom right, rgb(113, 201, 26), rgb(66, 36, 105));
+        }
+
+        td.c7 {
+            background: -webkit-linear-gradient(bottom right, rgb(14, 169, 76), rgb(45, 79, 182));
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table">
+
+    </table>
+    <script>
+        var table = document.getElementById("table");
+        for (var i = 0; i < 20; i++) {
+            var tr = document.createElement('tr');
+            for (var j = 0; j < 20; j++) {
+                var td = document.createElement('td');
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        // 用getElementsByTagName通过标签名获得元素
+        // var tr=document.getElementsByTagName("tr"); 
+        var td = document.getElementsByTagName("td");
+
+
+        // 4x4砖头显示位置
+        var row = 0;
+        var col = 8;
+        // 对表格染色
+        // 染色函数,参数a表示行、b表示列、num表示数字
+        function color(row, col, num) {
+            table.getElementsByTagName("tr")[row].getElementsByTagName("td")[col].className = 'c' + num;
+        }
+        // 定义砖头
+        var brick;
+
+        // 随机砖头函数
+        function randomBrick() {
+            // 用4x4二位数组表示砖头
+            // 0表示没有染色，其他数字对应类名所对应的颜色
+            var allBrick = [
+                [
+                    [0, 0, 1, 0, 0],
+                    [0, 0, 1, 0, 0],
+                    [0, 0, 1, 0, 0],
+                    [0, 0, 1, 0, 0],
+                    [0, 0, 0, 0, 0]
+                ],
+                [
+                    [0, 0, 0, 0, 0],
+                    [0, 2, 2, 0, 0],
+                    [0, 0, 2, 2, 0],
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0]
+                ],
+                [
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0],
+                    [0, 3, 3, 3, 0],
+                    [0, 0, 3, 0, 0],
+                    [0, 0, 0, 0, 0]
+                ],
+                [
+                    [0, 0, 0, 0, 0],
+                    [0, 4, 4, 0, 0],
+                    [0, 4, 4, 0, 0],
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0]
+                ],
+                [
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 5, 5, 0],
+                    [0, 0, 5, 0, 0],
+                    [0, 0, 5, 0, 0],
+                    [0, 0, 0, 0, 0]
+                ],
+                [
+                    [0, 0, 0, 0, 0],
+                    [0, 6, 6, 0, 0],
+                    [0, 0, 6, 0, 0],
+                    [0, 0, 6, 0, 0],
+                    [0, 0, 0, 0, 0]
+                ],
+                [
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 7, 7, 0],
+                    [0, 7, 7, 0, 0],
+                    [0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0]
+                ]
+            ];
+            var a = parseInt(Math.random() * 7);
+            brick = allBrick[a];
+
+        }
+        // 画砖头
+        function drawBrick() {
+            for (var i = 0; i < 5; i++) {
+                for (var j = 0; j < 5; j++) {
+                    if (brick[i][j] != 0) {
+                        color(i + row, j + col, brick[i][j]);
+                    }
+                }
+
+            }
+        }
+
+        // 旋转砖头的函数
+        function rotateBrick() {
+            //用于接收旋转后矩阵的结果
+            var resultArr = [[], [], [], [], []];
+            for (var i = 0; i < 5; i++) {
+                for (var j = 0; j < 5; j++) {
+                    resultArr[j][4 - i] = brick[i][j];
+                    // console.log(result[j][4-i]);
+
+                }
+            }
+            brick = resultArr;
+
+        }
+
+        // 地图
+        var map = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 2, 1, 0],
+            [0, 0, 2, 5, 0, 0, 5, 6, 5, 0, 0, 0, 4, 0, 0, 0, 4, 2, 1, 0],
+            [0, 0, 2, 5, 0, 0, 5, 6, 5, 0, 0, 0, 4, 0, 0, 0, 4, 2, 1, 0],
+            [1, 0, 2, 5, 3, 5, 5, 6, 5, 4, 3, 2, 4, 7, 2, 3, 4, 2, 1, 0],
+            [1, 0, 2, 5, 3, 5, 5, 6, 5, 4, 3, 2, 4, 7, 2, 3, 4, 2, 1, 0],
+            [1, 1, 2, 5, 3, 5, 5, 6, 5, 4, 3, 2, 4, 7, 2, 3, 4, 2, 1, 1],
+        ]
+        // 画地图
+        function drawMap() {
+            for (var i = 0; i < 20; i++) {
+                for (var j = 0; j < 20; j++) {
+                    if (map[i][j] != 0) {
+                        color(i, j, map[i][j]);
+                    }
+                }
+
+            }
+
+        }
+
+        // 清屏幕
+        function clearColor() {
+            for (var i = 0; i < 5; i++) {
+                for (var j = 0; j < 5; j++) {
+                    if (brick[i][j] != 0) {
+                        color(i + row, j + col, 0);
+                    }
+                }
+
+            }
+
+        }
+        // 判断是否满一行函数
+        function disappear() {
+            var vinish = true;
+            for (var i = 19; i > 4; i--) {
+                for (var j = 0; j < 20; j++) {
+                    if (map[i][j] == 0) {
+                        vinish = false;
+                    }
+                }
+                if (vinish) {
+                    map[i][j] = map[i - 1][j];
+                    map[20][20] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+                }
+            }
+        }
+        randomBrick();
+        drawBrick();
+        drawMap();
+        var dowm = true;
+
+        // 遍历数组，如果砖头的第i行第j列不是零，那么就染色
+        var timer = setInterval(function () {
+            // randomBrick();
+            clearColor();
+            for (var i = 0; i < 5; i++) {
+                for (var j = 0; j < 5; j++) {
+                    if (brick[i][j] != 0 && map[i + row + 1][j + col] != 0) {
+                        dowm = false;
+                    }
+                }
+
+            }
+            if (dowm) {
+                row++;
+            } else {
+                for (var i = 0; i < 5; i++) {
+                    for (var j = 0; j < 5; j++) {
+                        if (brick[i][j] != 0) {
+                            map[i + row][j + col] = brick[i][j];
+                            // disappear();
+
+                        }
+                    }
+
+                }
+                randomBrick();
+                dowm = true;
+                row = 0;
+                col = 8;
+            }
+            // 判断是不是满一行
+            drawMap();
+            drawBrick();
+        }, 500);
+
+
+
+
+        // 事件监听
+        document.onkeydown = function (e) {
+            // 先清
+            clearColor();
+            // 向下
+            if (e.keyCode == 38) {
+                // 再转
+                rotateBrick();
+
+
+            }
+            // 向下
+            else if (e.keyCode == 40) {
+                while (true) {
+                    for (var i = 0; i < 5; i++) {
+                        for (var j = 0; j < 5; j++) {
+                            if (brick[i][j] != 0 && map[i + row + 1][j + col] != 0) {
+                                map[i + row][j + col] = brick[i][j];
+                                dowm = false;
+                            }
+                        }
+
+                    }
+                    if (dowm) {           //如果能下落
+                        row++;
+                    } else {
+                        break;
+                    }
+
+                }
+            }
+            // 向左
+            else if (e.keyCode == 37) {
+                var isLeft = true;
+                for (var i = 0; i < 5; i++) {
+                    for (var j = 0; j < 5; j++) {
+                        if (brick[i][j] != 0 && map[i + row][j + col - 1] != 0) {
+                            isLeft = false;
+                        }
+                    }
+
+                }
+                if (isLeft) {
+                    col--;
+                }
+            }
+            // 向右
+            else if (e.keyCode == 39) {
+                var isright = true;
+                for (var i = 0; i < 5; i++) {
+                    for (var j = 0; j < 5; j++) {
+                        if (brick[i][j] != 0 && map[i + row][j + col + 1] != 0) {
+                            isright = false;
+                        }
+                    }
+
+                }
+                if (isright) {
+                    col++;
+                }
+            }
+            // 将差的一帧补上
+            drawMap();
+            drawBrick();
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

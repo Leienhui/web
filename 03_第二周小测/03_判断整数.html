@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>请输入一个数</p>
+    <p><input type="text" id="input1"></p>
+    <h1 id="h1"></h1>
+    <button id="btn">查看</button>
+    <script>
+        // 如何判断一个数字是个整数？请用三种方法判断。
+        var input1 = document.getElementById('input1');
+        var btn = document.getElementById('btn');
+        var h1 = document.getElementById('h1');
+        btn.onclick = function () {
+            var num = Number(input1.value);
+            if(num%1==0){
+                h1.innerHTML=num+"是整数";
+            }else{
+                h1.innerHTML=num+"不是整数";
+
+            }
+            // if(Math.round(num*100/100)==num){
+            //     h1.innerHTML=num+"是整数";
+            // }else{
+            //     h1.innerHTML=num+"不是整数";
+
+            // }
+            // if(parseInt(num)==num){
+            //     h1.innerHTML=num+"是整数";
+            // }
+            // else{
+            //     h1.innerHTML=num+"不是整数";
+
+            // }
+
+        }
+    </script>
+</body>
+</html>

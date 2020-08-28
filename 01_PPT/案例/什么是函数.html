@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 定义一个函数，注意函数就是一个“机器”，可以接收原材料，产生产品
+        // 定义一个计算阶乘的函数，原材料就是计算哪个数字的阶乘，结果就是它的阶乘
+        function factorial(n) {
+            var result = 1;
+            for (var i = 1; i <= n; i++) {
+                result *= i;
+            }
+            // return就是返回的意思， 表示机器产生的产品，返回出去
+            return result;
+        }
+
+        // 调用函数三次，函数只需要定义一次，就可以多次调用
+        console.log(factorial(4));  // 24
+        console.log(factorial(5));  // 24
+        console.log(factorial(8));  // 40320
+
+        // 使用函数可以让一个比较难的问题，瞬间变得简单了
+        // 将问题降维，就是函数的一个最大的用途
+        // 计算3! + 4! + 5! + 6! + 7!
+        var sum = 0;
+        for (var i = 3; i <= 7; i++) {
+            sum += factorial(i);
+        }
+        console.log(sum);
+    </script>
+</body>
+
+</html>

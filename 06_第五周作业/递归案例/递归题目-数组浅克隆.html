@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr1 = [1, 2, 3, 4, [5, 6]];
+
+        // 创建一个结果数组
+        var arr2 = [];
+
+        // 遍历原有数组，将每一项推入
+        for (var i = 0; i < arr1.length; i++) {
+            arr2.push(arr1[i]);
+        }
+
+        // 结果是false，是好事儿，因为内存分开了。
+        console.log(arr1 == arr2);
+        
+        // 但是，尝试给子数组推入一个7，那么arr2也变化了，说明“藕断丝连”
+        arr1[4].push(7);
+        console.log(arr2);
+    </script>
+</body>
+
+</html>

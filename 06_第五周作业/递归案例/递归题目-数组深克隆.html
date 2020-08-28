@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr1 = [1, 2, 3, 4, [5, 6]];
+
+        // deepclone的参数不一定是数组，一会儿可能基本类型值进来
+        function deepclone(item) {
+            // 判断item是不是数组，注意数组要用Array.isArray()来判断，不能用typeof
+            // typeof返回值是object，和对象雷同了
+            if (Array.isArray(item)) {
+                // 如果是数组就进行一次浅克隆，但是每一项要再次进入到deepclone函数中
+                var result = [];
+                for (var i = 0; i < item.length; i++) {
+                    result.push(deepclone(item[i]));
+                }
+                return result;
+            } else {
+                // 如果是基本类型值，直接返回
+                return item;
+            }
+        }
+
+        var arr2 = deepclone(arr1);
+        console.log(arr2[4] == arr1[4]);
+        console.log(arr2);
+    </script>
+</body>
+
+</html>

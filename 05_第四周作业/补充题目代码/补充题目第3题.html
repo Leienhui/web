@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //  数组中有没有“两个数字之间的数字和，等于它俩本身的和”，请寻找这样的数组。比如数组[5,5,8,1,9,4,6,1]中，5+9等于14，5+8+1也等于14；所以[5,5,8,1,9]是符合要求的；另外，[8,1,9,4,6]也是符合要求的，因为8+6是14,1+9+4也是14。
+
+
+        // 因为两个指针挨着，就没有中间的数字，所以隔一个
+        var i = 0;
+        var j = 2;
+
+        var arr = [5, 5, 8, 1, 9, 4, 6, 1];
+
+        // 当i没有变化的时候，辗转统计（j在移动，随着j移动，sum在变化）这时候i开头的
+        var sum = arr[1];
+
+        while (i < arr.length - 2) {
+            if (sum == arr[i] + arr[j]) {
+                // 两个数字之间的数字和等于两个指针指向的数字
+                console.log('子数组' + arr.slice(i, j + 1) + '符合条件');
+            }
+            // 指针j移动之前，先把j当前的数字加到sum中
+            sum += arr[j];
+            // j后移
+            j++;
+            // 验收，看j是不是到头了，指出去了，如果到头了，i要进行移动
+            if (j > arr.length - 1) {
+                // 指针i后移
+                i++;
+                // j成为i后两项
+                j = i + 2;
+                // sum要清空
+                sum = arr[i + 1];
+            }
+        }
+    </script>
+</body>
+
+</html>

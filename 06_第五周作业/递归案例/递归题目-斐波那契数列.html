@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 斐波那契数列
+        // 1、1、2、3、5、8、13、21、34
+
+
+        // 这个函数将返回斐波那契数列的第n项
+        function fib(n) {
+            // 斐波那契数列前两项是1
+            if (n == 1 || n == 2) return 1;
+
+            // 不就是前两项的和么？？
+            return fib(n - 1) + fib(n - 2);
+        }
+
+        for (var i = 1; i < 10; i++) {
+            console.log(fib(i));
+        }
+    </script>
+</body>
+
+</html>

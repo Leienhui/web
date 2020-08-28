@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 阶乘函数
+        function jiecheng(n) {
+            // 递归一定要有终点，如果是1，那么1的阶乘就是1，
+            // 如果不是1，那么n的阶乘，不就相当于n*(n-1)的阶乘么
+            return n == 1 ? 1 : n * jiecheng(n - 1);
+        }
+
+        var result = jiecheng(4);
+        console.log(result);
+    </script>
+</body>
+
+</html>

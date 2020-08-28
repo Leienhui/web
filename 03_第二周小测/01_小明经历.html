@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>请输入数学成绩<input type="text"  id="input1"></p>
+    <p>请输入英语成绩<input type="text"  id="input2"></p>
+    <h1 id="h1"></h1>
+    <button id="btn">查看</button>
+    <script>
+        // 如果小明数学考试成绩达到80分，会得到巧克力；英语成绩达到90，会得到棒棒糖。如果两个条件都没有达到，则会挨打。请编写程序，用两个input框接收数学考试成绩和英语考试成绩，点击按钮后判断小明会经历什么？
+        var input1=document.getElementById('input1');
+        var input2=document.getElementById('input2');
+        var btn=document.getElementById('btn');
+        var h1=document.getElementById('h1');
+        btn.onclick=function(){
+            var math=Number(input1.value);
+            var English=Number(input2.value);
+            var sum='';
+            if(math>=80){
+                sum+='巧克力';
+                h1.innerText=sum;
+            }
+            if(English>=90){
+                sum+='棒棒糖';
+                h1.innerText=sum;
+            }
+            if(math<80&&English<90){
+                h1.innerText='挨打';
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>

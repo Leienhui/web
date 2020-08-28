@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        第1题题目：点击哪个p标签，哪个p标签就变黄，其他的都恢复灰色。
+        不要用事件委托，用for循环批量添加事件监听。
+    </h3>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <script>
+        var p = document.getElementsByTagName('p');
+        for (var i = 0; i < p.length; i++) {
+            p[i].onclick = function (e) {
+                for(var j=0;j<p.length;j++){
+                        p[j].style.backgroundColor = '';
+                }
+                // e.target.style.backgroundColor = 'yellow';
+                this.style.backgroundColor = 'yellow';
+            };
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        请输入数字：
+        <input type="text" id="content">
+    </p>
+    <button id="btn">映射</button>
+    <h1 id="h1"></h1>
+    <script>
+        // （面试题）请用户输入一个数字字符串，请你将这个数字字符串的每一位都映射成新的数字，映射规则是：① 如果这位数乘以2是小于10的，那么就映射成为这个数字乘以2的值；② 如果这位数乘以2是大于等于10的，那么就把乘以2的各个数位相加即可。这样一来，比如3就会映射会6；2就会映射4；5就会映射为1，因为5的2倍是10，而1+0是1；6就会映射为3，因为6的两倍是12, 而1+2等于3。所以当用户输入“1673”就要映射为“2356”。
+        var content = document.getElementById('content');
+        var h1 = document.getElementById('h1');
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            contentstr = content.value;
+            var str = '';
+            for (var i = 0; i < contentstr.length; i++) {
+                var num = parseInt(contentstr[i]);
+                if (num * 2 < 10) {
+                    str += (num * 2).toString();
+                } else {
+                    str += (parseInt(num * 2 / 10) + (num * 2 % 10)).toString();
+                }
+            }
+            h1.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>

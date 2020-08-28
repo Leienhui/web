@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>动态上树需要使用事件委托</h1>
+    <h3>
+        第2题题目：用户在文本框中输入内容，点击添加按钮，此时可以在列表中添加一项（最后加入）；另外，点击任何一个删除按钮，这项就会被删除。点击添加按钮之后，文本框中的内容会清空，并且获得焦点。
+    </h3>
+    <div>
+        <input type="text">
+        <button class="btn">添加</button>
+        <ul>
+            <li class="liBtn">牛奶 <button>删除</button></li>
+            <li class="liBtn">咖啡 <button>删除</button></li>
+            <li class="liBtn">雪碧 <button>删除</button></li>
+        </ul>
+    </div>
+    <script>
+        var btn = document.getElementsByClassName('btn');
+        var input = document.getElementsByTagName('input');
+        var lis = document.getElementsByTagName('li');
+        var ul = document.getElementsByTagName('ul');
+        var liBtn = document.getElementsByClassName('liBtn');
+        console.log(liBtn.length)
+        btn[0].onclick = function () {
+            // 获取输入框的东西
+            var value = input[0].value;
+            if (value != '') {
+                // 创建添加节点
+                var li = document.createElement('li');
+                li.innerText = value;
+                var button = document.createElement('button');
+                button.innerText = '删除';
+                li.className = 'liBtn';
+                li.appendChild(button);
+                ul[0].appendChild(li);
+                // 清除输入框
+                input[0].value = '';
+                // 聚焦
+                input[0].focus();
+            }
+        }
+        ul[0].onclick = function (e) {
+            ul[0].removeChild(e.target.parentNode);
+        }
+
+        
+
+
+    </script>
+</body>
+
+</html>

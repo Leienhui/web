@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>请输入一个长度大于4的字符串</p>
+    <p><input type="text" id="input1"></p>
+    <h1 id="h1"></h1>
+    <button id="btn">查看</button>
+    <script>
+        // 用户输入一个长度大于4的字符串，请将这个字符串“循环左移3位”。比如用户输入“我爱易烊千玺”，则弹出“烊千玺我爱易”；再比如用户输入“Python编程快速学习”，则弹出“hon编程快速学习Pyt”。
+        var input1 = document.getElementById('input1');
+        var btn = document.getElementById('btn');
+        var h1 = document.getElementById('h1');
+        btn.onclick = function () {
+            var str = input1.value;
+            var cutStr=str.substring(0,3);
+            var shengyu=str.substring(3);
+            var str=shengyu+cutStr;
+            console.log(str);
+            h1.innerHTML=str;
+
+        };
+       
+
+
+
+    </script>
+</body>
+
+</html>

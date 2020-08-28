@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 题目：“回文质数”是指这个数字既是回文数，又是质数。比如数字313就是一个回文质数、数字2也是一个回文质数。请编程寻找前100个回文质数。
+        // 思路：封装两个函数，第一个函数判断这个数字是不是回文的；第二个函数判断这个数字是不是质数。
+
+
+        // 这个函数的功能是判断一个数字是不是回文的，返回布尔值
+        function checkHuiwen(n) {
+            // 把数字n变为字符串
+            var str = String(n);
+
+            // 从0开始遍历到字符串的中间位置，看首尾是否一致
+            for (var i = 0; i < str.length / 2; i++) {
+                // 只要有任何首尾一位不是相同的,就立即判断出这个数字不是回文的
+                if (str[i] != str[str.length - 1 - i]) return false;
+            }
+
+            // for循环结束了，就说明没有任何一个return false，此时就表示它是一个回文的
+            // 因为函数遇见了一个return语句，就不再继续执行后面的语句了
+            return true;
+        }
+
+        // 这个函数某个数字是不是质数，返回布尔值
+        function checkPrime(n) {
+            // 怎么检查质数呢？？就是从2开始，到根号n结束
+            for (var i = 2; i <= Math.sqrt(n); i++) {
+                // 如果2到根号下n有这么个数字能够整除n，那么就说明n不是质数
+                if (n % i == 0) return false;
+            }
+            // for循环结束了，还没有return false，就说明2到根号n没有数字能够整除它
+            // 它就是质数
+            return true;
+        }
+
+
+        // 寻找前100个回文质数
+        var count = 0;
+        // 从2开始测试
+        var a = 2;
+
+        while (count < 100) {
+            // 下面的这行代码，真美！！！！！下面的这行代码，真美！！！！！下面的这行代码，真美！！！！！下面的这行代码，真美！！！！！下面的这行代码，真美！！！！！下面的这行代码，真美！！！！！下面的这行代码，真美！！！！！下面的这行代码，真美！！！！！
+            if (checkHuiwen(a) && checkPrime(a)) {
+                console.log(a);
+                // 找到了一个，计数器就要加1
+                count++;
+            }
+            // 不管找到没有，都要寻找下一个数字了
+            a++;
+        }
+    </script>
+</body>
+
+</html>

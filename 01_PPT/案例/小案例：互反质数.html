@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 题目：互反质数是指它本身是质数，它的逆序数字也是质数。比如17和71；13和31等。请输出前100个互反质数，要求按从小到大输出，每行显示10个，并且准确对齐
+
+        // 这个函数某个数字是不是质数，返回布尔值
+        function checkPrime(n) {
+            // 怎么检查质数呢？？就是从2开始，到根号n结束
+            for (var i = 2; i <= Math.sqrt(n); i++) {
+                // 如果2到根号下n有这么个数字能够整除n，那么就说明n不是质数
+                if (n % i == 0) return false;
+            }
+            // for循环结束了，还没有return false，就说明2到根号n没有数字能够整除它
+            // 它就是质数
+            return true;
+        }
+
+        // 这个函数的功能是把数字反过来
+        function reverseNumber(n) {
+            // 先把数字变为字符串，然后拆为数组，因为数组方便reverse，然后变回字符串，最后变回数字
+            return Number(String(n).split('').reverse().join(''));
+        }
+
+
+        // 寻找100个质数
+        var count = 0;
+        // 从2开始找
+        var a = 2;
+        // 按行输出，每行是一个字符串
+        var str = '';
+        // 解决效率问题，要做一个辅助数组
+        var arr = [];
+
+        while (count < 10000) {
+            // 先去检查这个数组在不在数组中，如果在数组中，直接输出，
+            // 根据短路规则，或者的情况，如果前面的条件为真了，||后面的表达式就不用做了啊
+            // 这样一来，检查13的时候，就把31推入数组了，检查31的时候，arr.includes(a)为真，根据短路规则，就不会检查||后面的条件了，就不用检查质数了，一下子节约了计算时间
+            if (arr.includes(a) || a != reverseNumber(a) && checkPrime(a) && checkPrime(reverseNumber(a))) {
+                if (!arr.includes(a)) {
+                    // 把它逆序的那个数字推入数组
+                    arr.push(reverseNumber(a));
+                } else {
+                    // 删掉，保持数组轻量
+                    var idx = arr.indexOf(reverseNumber(a));
+                    arr.splice(idx, 1)
+                }
+
+                // 往字符串中拼接，加上一个缩进
+                // padEnd()是ES6的方法，4表示补足4位，' '表示用空字符串补
+                str += String(a).padEnd(4, ' ') + '\t';
+                count++;
+                // 如果满10的倍数了，就输出，字符串清空
+                if (count % 10 == 0) {
+                    console.log(str);
+                    str = '';
+                }
+            }
+            a++;
+        }
+        
+    </script>
+</body>
+
+</html>

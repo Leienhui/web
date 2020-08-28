@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="p1"></p>
+    <p>+</p>
+    <p id="p2"></p>
+    <input type="text" id="input1" value="请输入结果">
+    <button id="btn">查看</button>
+    <script>
+        // 7.	【条件分支考察】页面上随机生成一个20以内的加法算式，要求用户输入结果，输入正确则弹出正确，错误则弹出错误。如何随机生成数字，本周会讲，就是Math.random()。
+        var p1 = document.getElementById("p1");
+        var p2 = document.getElementById("p2");
+        var input1 = document.getElementById("input1")
+        var btn = document.getElementById("btn");
+        var a = parseInt(Math.random() * 20);
+        var b = parseInt(Math.random() * 20);
+        p1.innerHTML = a;
+        p2.innerHTML = b;
+        btn.onclick = function () {
+            var result = parseInt(input1.value);
+            if (result == a + b) {
+                alert("正确");
+            }
+            else {
+                alert("错误");
+            }
+        }
+        input1.onfocus = function () {
+            if (this.value == '请输入结果') {
+                this.value = '';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

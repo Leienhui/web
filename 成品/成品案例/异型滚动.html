@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .carousel {
+            width: 1200px;
+            height: 500px;
+            margin: 40px auto;
+            background-origin: padding-box;
+            position: relative;
+        }
+
+        .carousel ul {
+            list-style: none;
+        }
+
+        .carousel ul li {
+            position: absolute;
+            background: url(images/feedback_bg.png);
+            background-size: 100% 100%;
+            bottom: 0;
+            transition: all .5s ease 0s;
+            font-size: 50px;
+            text-align: center;
+            line-height: 130px;
+            opacity: 0;
+        }
+
+        .carousel ul li.no0 {
+            width: 70px;
+            height: 148px;
+            left: -70px;
+        }
+
+        .carousel ul li.no1 {
+            width: 120px;
+            height: 239px;
+            left: 13%;
+            margin-left: -55px;
+            opacity: 1;
+        }
+
+        .carousel ul li.no2 {
+            width: 170px;
+            height: 354px;
+            left: 30%;
+            margin-left: -85px;
+            opacity: 1;
+        }
+
+        .carousel ul li.no3 {
+            width: 220px;
+            height: 458px;
+            left: 50%;
+            margin-left: -110px;
+            opacity: 1;
+        }
+
+        .carousel ul li.no4 {
+            width: 170px;
+            height: 354px;
+            left: 70%;
+            margin-left: -85px;
+            opacity: 1;
+        }
+
+        .carousel ul li.no5 {
+            width: 120px;
+            height: 239px;
+            left: 87%;
+            margin-left: -55px;
+            opacity: 1;
+        }
+
+        .carousel ul li.no6 {
+            width: 70px;
+            height: 148px;
+            left: 100%;
+            opacity: 0;
+        }
+
+        .carousel ul li img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel" id="carousel">
+        <ul>
+            <li class="no0">0</li>
+            <li class="no1">1</li>
+            <li class="no2">2</li>
+            <li class="no3">3</li>
+            <li class="no4">4</li>
+            <li class="no5">5</li>
+            <li class="no6">6</li>
+            <li class="">7</li>
+            <li class="">8</li>
+            <li class="">9</li>
+            <li class="">10</li>
+            <li class="">11</li>
+            <li class="">12</li>
+            <li class="">13</li>
+        </ul>
+        <button id="btn1">按我</button>
+        <button id="btn2">按我</button>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var arr = ['no0', 'no1', 'no2', 'no3', 'no4', 'no5', 'no6', '', '', '', '', '', '', ''];
+
+        // 得到li
+        var $lis = $('#carousel li');
+
+        // 节流锁，什么是节流？就是让函数不要快速重复触发
+        var lock = true;
+
+        // 点击右按钮
+        $('#btn2').click(function () {
+            // 如果锁没开，那么就什么都不做
+            if (!lock) return;
+            // 进来了就关锁
+            lock = false;
+            // 设置一个延时器，300毫秒之后再次开锁
+            setTimeout(function () {
+                // 300毫秒之后把锁打开
+                lock = true;
+            }, 300);
+
+            // 队尾删除一项，并且把这项插入到队首
+            arr.push(arr.shift());
+            // 遍历每个li，让每个li成为对应项的类名
+            for (var i = 0; i < 14; i++) {
+                // 让第i个li成为数组中第i项的类名，神奇！
+                $lis.eq(i).attr('class', arr[i]);
+            }
+            console.log(arr);
+        });
+
+
+        // 点击左按钮
+        $('#btn1').click(function () {
+            // 如果锁没开，那么就什么都不做
+            if (!lock) return;
+            // 进来了就关锁
+            lock = false;
+            // 设置一个延时器，300毫秒之后再次开锁
+            setTimeout(function () {
+                // 300毫秒之后把锁打开
+                lock = true;
+            }, 300);
+
+            // 队尾删除一项，并且把这项插入到队首
+            arr.unshift(arr.pop());
+            // 遍历每个li，让每个li成为对应项的类名
+            for (var i = 0; i < 14; i++) {
+                // 让第i个li成为数组中第i项的类名，神奇！
+                $lis.eq(i).attr('class', arr[i]);
+            }
+            console.log(arr);
+        });
+
+
+        // 触碰锁
+        var touchlock = true;
+
+        $('#carousel').mouseenter(function () {
+            touchlock = false;
+        });
+        $('#carousel').mouseleave(function () {
+            touchlock = true;
+        });
+
+        // 定时器
+        setInterval(function () {
+            if (!touchlock) return;
+            // 模拟点击右按钮
+            $('#btn2').trigger('click');
+        }, 1000);
+    </script>
+</body>
+
+</html>

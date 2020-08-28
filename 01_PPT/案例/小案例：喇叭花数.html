@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 题目：喇叭花数是这样的三位数：其每一位数字的阶乘之和恰好等于它本身。即abc = a! + b！+ c！，其中abc表示一个三位数。试寻找所有喇叭花数。
+        // 怎么分析呢？当这个问题明显能够看出是有“小层次”的，比如这个题目中计算阶乘就是一个单独的步骤，是一个“小层次”，那么function就能够降维。
+
+        // 封装一个函数，这个函数的功能是返回n的阶乘
+        function factorial(n) {
+            var result = 1;
+            for (var i = 1; i <= n; i++) {
+                result *= i;
+            }
+            // 函数什么时候要有返回值？？就是这个函数要被更高级的业务使用，这个函数通常要有return值
+            return result;
+        }
+
+        // // 封装完一个函数就要对函数进行测试
+        // console.log(factorial(4));
+        // console.log(factorial(9));
+
+        // 穷举，从100寻找到999
+        for (var i = 100; i <= 999; i++) {
+            // 拆位，转为字符串
+            var str = String(i);
+            // 百、十、个
+            var a = str[0];
+            var b = str[1];
+            var c = str[2];
+
+            // 看各个数位阶乘和是不是等于i
+            if (factorial(a) + factorial(b) + factorial(c) == i) console.log(i);
+        }
+    </script>
+</body>
+
+</html>

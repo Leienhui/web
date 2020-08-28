@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 循环5000次，但是用不到i这个东西
+        var count = 5000;
+        // 两个累加器
+        var z = 0;
+        var f = 0;
+        var n;
+        while (count--) {
+            // 随机产生一个0、1数字
+            n = parseInt(Math.random() * 2);
+            // 规定0就是反面，1就是正面
+            if (n) {
+                z++;
+            } else {
+                f++;
+            }
+        }
+        console.log('正面一共' + z + '次');
+        console.log('反面一共' + f + '次');
+    </script>
+</body>
+
+</html>

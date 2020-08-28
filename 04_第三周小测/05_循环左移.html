@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>请输入文字
+        <input type="text" id="content">
+    </p>
+    <p>请输入左移位数
+        <input type="text" id="num">
+    </p>
+    <h1 id="h1"></h1>
+    <button id="btn">查看</button>
+    <script>
+        var content = document.getElementById('content');
+        var num = document.getElementById('num');
+        var h1 = document.getElementById('h1');
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            contentstr = content.value;
+            numValue = parseInt(num.value)%contentstr.length;
+            var str = contentstr.substring(numValue) + contentstr.substring(0, numValue);
+            h1.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="请输入一个分钟数" id="input">
+    <button id="btn">查看</button>
+    <h1 id="h1"></h1>
+    <script>
+        // 2.	【基本程序考察】提示用户输入一个分钟数，例如1000000000（十亿），显示这些分钟代表多少年零多少天，每年一定是365天，不用考虑闰年。老师已经做了一个示例结果，1000000000分钟表示1902年零214天
+        var input = document.getElementById("input");
+        var h1 = document.getElementById("h1");
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var value = parseInt(input.value);
+            var year=parseInt(value/(365*24*60));
+            var day=parseInt((value%(365*24*60))/(24*60));
+            h1.innerHTML=year+"年"+day+"天";
+        }
+        input.onfocus = function () {
+            if (this.value == '请输入一个分钟数') {
+                this.value = '';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 3.	请用户输入多个学生成绩，每弹出一个prompt框就接收一个学生成绩，如果不想输入了，就输入end单词。用户输入end了，就alert出所有学生成绩的最大值、最小值、平均分。
+        var arr = [];
+        while (true) {
+            var n = prompt('请输入学生成绩');
+            if (n != 'end') {
+                var grade = parseInt(n);
+                arr.push(grade);
+                console.log(arr);
+            } else {
+                console.log(arr)
+                var max = -Infinity;
+                var min = Infinity;
+                var average = 0;
+                var sum = 0;
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i] > max) {
+                        max = arr[i];
+                    }
+                    if (arr[i] < min) {
+                        min = arr[i];
+                    }
+                    sum += arr[i];
+                    console.log(sum)
+                }
+                average = Math.round(sum / arr.length);
+                alert("最大值" + max);
+                alert("最小值" + min);
+                alert("平均分" + average);
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>

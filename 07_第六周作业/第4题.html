@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 18px;
+        }
+
+        .tag {
+            border: 1px solid #000;
+            padding: 4px 8px;
+            background: #eee;
+        }
+
+        .tag em {
+
+            cursor: pointer;
+        }
+
+        .tag em:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>第4题，题目老师录制了一个1.4M的小视频，请看</h3>
+    <div>
+        <p>请选择你喜欢的英雄（最多选择3个）</p>
+        <label>
+            <input type="checkbox">
+            刘备
+        </label>
+        <label>
+            <input type="checkbox">
+            张飞
+        </label>
+        <label>
+            <input type="checkbox" checked>
+            关羽
+        </label>
+        <label>
+            <input type="checkbox">
+            貂蝉
+        </label>
+        <label>
+            <input type="checkbox" checked>
+            王语
+        </label>
+        <label>
+            <input type="checkbox">
+            Gary
+        </label>
+        <label>
+            <input type="checkbox">
+            考拉
+        </label>
+    </div>
+    <div>
+        <p id="p">
+            当前您已经选择了：
+            <span class="tag">关羽 <em>×</em></span>
+            <span class="tag">王语 <em>×</em></span>
+        </p>
+    </div>
+    <script>
+        var input = document.getElementsByTagName('input');
+        var label = document.getElementsByTagName('label');
+        var allSpan = document.getElementsByTagName('span');
+        var ems = document.getElementsByTagName('em');
+        var p = document.getElementById('p');
+        var emsLen = ems.length;
+        // 获取label中的文字
+        function addtext(parent) {
+            var parent = parent.replace(/\n|\r|\t/g, "");;
+            var arr = parent.split(' ');
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] != ' ') {
+                    break;
+                }
+                arr.splite(i, 1);
+                i--;
+
+            }
+            for (var j = arr.length - 1; j > 0; j--) {
+                if (arr[j] != ' ') {
+                    break;
+                }
+                arr.splite(j, 1);
+            }
+            return arr.join('');
+
+        }
+
+
+
+
+        // 点击label选中，添加
+        for (var a = 0; a < label.length; a++) {
+            input[a].onclick = function (e) {
+                if (allSpan.length < 3) {
+
+                    // 获取到选中的那个文本
+                    var text = String(addtext(e.target.parentNode.textContent));
+                    // 判断原先的文本里面是否有这个文本
+                    // 遍历原先的文本
+                    var result = [];
+                    for (var n = 0; n < allSpan.length; n++) {
+                        var value = allSpan[n].textContent.split(' ')[0];
+                        result.push(value);
+                    }
+
+                    // 点击的这个不在下面的数组，那么就创建节点
+                    if (!result.includes(text) && e.target.checked) {
+                        var span = document.createElement('span');
+                        var em = document.createElement('em');
+                        span.innerText = text;
+                        em.innerText = ' ×';
+                        span.appendChild(em);
+                        span.className = 'tag';
+                        p.appendChild(span);
+                        // console.log(allSpan);
+                        emsLen = ems.length;
+                        // console.log("添加了em的长度" + emsLen)
+                    }
+
+
+                    
+                    if (e.target.checked == '') {
+                        // 如果选中的目标的是空
+                        for (var m = 0; m < allSpan.length; m++) {
+                            if (allSpan[m].textContent.split(' ')[0] == text) {
+                                p.removeChild(allSpan[m]);
+                            }
+                        }
+
+                    }
+                }
+
+
+                // 判断是否可选
+                if (allSpan.length >= 3) {
+                    for (var j = 0; j < input.length; j++) {
+                        input[j].disabled = true;
+                    }
+                }
+
+
+                // 删除
+                del();
+
+
+            }
+        }
+        // 点击删除函数
+        function del() {
+            for (var b = 0; b < emsLen; b++) {
+                ems[b].onclick = function (e) {
+                    p.removeChild(e.target.parentNode);
+                    emsLen = ems.length;
+                    var name = String(e.target.parentNode.textContent.split(' ')[0]);
+                    if (allSpan.length < 3) {
+                        for (var j = 0; j < input.length; j++) {
+                            input[j].disabled = false;
+                            if (addtext(input[j].parentNode.textContent) == name) {
+                                input[j].checked = '';
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // 刚开始就可以删除
+        for (var b = 0; b < emsLen; b++) {
+            del();
+        }
+
+
+
+    </script>
+</body>
+
+</html>

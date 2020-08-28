@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+// 斐波那契数列
+var arr = [1, 1];
+
+// 当前项下标是m
+var m = 2;
+
+// 下面的循环语句很少，但是如果你能闲庭信步写出来，云淡风轻的，
+// 那么真心是前端JS算是算法很好的了。
+while (arr.length < 20) {
+    arr.push(arr[m - 1] + arr[m - 2]);
+    m++;
+}
+console.log(arr);
+    </script>
+</body>
+
+</html>

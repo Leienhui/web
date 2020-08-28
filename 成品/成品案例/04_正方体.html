@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            margin: 60px  auto;
+        }
+        /* .stage {
+            width: 300px;
+            height: 300px;
+        } */
+
+        .stage .box {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            perspective: 130000px;
+            transform-style: preserve-3d;
+        }
+
+        .stage .box p {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            font-size: 60px;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        /* nth-child从序号1开始 */
+        .box p:nth-child(1) {
+            background-color: rgba(38, 141, 78, 0.65);
+            /* 正面：从体心向前走半径长度 */
+            transform: translateZ(150px);
+        }
+
+        .box p:nth-child(2) {
+            background-color: rgba(27, 23, 235, 0.65);
+            /* 顶面：后仰90度，前走半径长度 */
+            transform: rotateX(90deg) translateZ(150px);
+        }
+
+        .box p:nth-child(3) {
+            background-color: rgba(153, 35, 147, 0.65);
+             /* 后面：后仰180度，前走半径长度 */
+             transform: rotateX(180deg) translateZ(150px);
+        }
+
+        .box p:nth-child(4) {
+            background-color: rgba(12, 218, 245, 0.65);
+             /* 下面：后仰-90度，前走半径长度 */
+             transform: rotateX(-90deg) translateZ(150px);
+        }
+
+        .box p:nth-child(5) {
+            background-color: rgba(241, 14, 14, 0.65);
+             /* 侧面：左转90度，前走半径长度 */
+             transform: rotateY(-90deg) translateZ(150px);
+        }
+
+        .box p:nth-child(6) {
+            background-color: rgba(241, 245, 9, 0.65);
+             /* 右面：右转90度，前走半径长度 */
+             transform: rotateY(90deg) translateZ(150px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="box" id="box">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <p>6</p>
+        </div>
+    </div>
+    <script>
+        var box=document.getElementById('box');
+        var x=0;
+        var y=0;
+        // var z=0;
+        setInterval(function(){
+            x++;
+            y++;
+            // z++;
+            box.style.transform='rotateX('+x+'deg)  rotateY('+y+'deg)';
+
+            // box.style.transform='rotateX('+x+'deg)  rotateY('+y+'deg)  rotateZ('+z+'deg)';
+        },10)
+    </script>
+</body>
+
+</html>
