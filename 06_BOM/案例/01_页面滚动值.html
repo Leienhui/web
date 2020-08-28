@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><img src="../images/1.jpg" alt=""></p>
+    <p><img src="../images/2.jpg" alt=""></p>
+    <p id="p"><img src="../images/1.jpg" alt="">1</p>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // 监听窗口卷动事件
+        $(window).scroll(function(e){
+            // 输出窗口向上卷动的数值
+            console.log($(window).scrollTop());
+        })
+
+        //原生得方法
+        window.onscroll=function(){
+            console.log(document.documentElement.scrollTop);
+        }
+    </script>
+    
+</body>
+</html>

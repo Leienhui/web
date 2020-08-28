@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1"></h1>
+    <script>
+        var h1 = document.getElementById('h1');
+        // document表示文档
+        // documentElement表示文档根元素，也就是屏幕
+        // clientWidth表示宽度
+        // clientHeight表示高度
+        h1.innerHTML = document.documentElement.clientWidth;
+        h1.innerHTML = document.documentElement.clientHeight;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        .box1,
+        .box3,
+        .box6 {
+            height: 500px;
+            background-color: rgb(80, 211, 150);
+        }
+
+        .box2,
+        .box4,
+        .box5 {
+            height: 800px;
+            background-color: rgb(203, 216, 24);
+        }
+
+        ul {
+            list-style: none;
+            width: 60px;
+            height: 300px;
+            background-color: #ccc;
+            position: fixed;
+            right: 100px;
+            bottom: 225px;
+            z-index: 999;
+        }
+
+        ul li {
+            padding: 10px;
+            height: 30px;
+        }
+
+        ul li.cur {
+            background-color: rgb(223, 226, 12);
+        }
+        p{
+            height: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1 cur">
+        <h1>热点</h1>
+    </div>
+    <div class="box2">
+        <h1>财经</h1>
+    </div>
+    <div class="box3">
+        <h1>音乐</h1>
+    </div>
+    <div class="box4">
+        <h1>游戏</h1>
+    </div>
+    <div class="box5">
+        <h1>综艺</h1>
+    </div>
+    <div class="box6">
+        <h1>体育</h1>
+    </div>
+    <p></p>
+    <ul>
+        <li class="cur">热点</li>
+        <li>财经</li>
+        <li>音乐</li>
+        <li>游戏</li>
+        <li>综艺</li>
+        <li>体育</li>
+    </ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var arr = [];
+        for (var i = 0; i < $('div').length; i++) {
+            var $divTop = $('div').eq(i).offset().top;
+            console.log($divTop)
+            arr.push($divTop);
+        }
+        console.log(arr);
+        function eqs(d, arr) {
+            for (var i = 0; i < arr.length-1; i++) {
+                if (d >= arr[i] && d < arr[i + 1]) {
+                    return i;
+                }
+            }
+            return i;
+        }
+
+
+        $(window).scroll(function () {
+            var $distance = parseInt($(window).scrollTop());
+            var a= eqs($distance,arr);
+            console.log(a);
+            $('ul li').eq(a).addClass('cur').siblings().removeClass('cur');
+        })
+
+    </script>
+</body>
+
+</html>

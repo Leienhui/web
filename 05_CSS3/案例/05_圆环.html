@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .stage{
+            margin: 0 auto;
+            width: 800px;
+            height: 600px;
+
+        }
+        .stage .box{
+            width: 400px;
+            height: 300px;
+            perspective: 13000px;
+            transform-style: preserve-3d;
+            position: absolute;
+            top: 50%;
+            margin-top: -150px;
+            left: 50%;
+            margin-left: -200px;
+            transition: all 1s ease 0s;
+        }
+        .stage .box p{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+        }
+        .stage .box p img{
+            width: 400px;
+            height: 300px;
+        }
+        .stage button{
+            width: 80px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            margin-top: 100px;
+        }
+        .stage .btn1{
+            margin-right: 500px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="stage" id="stage">
+        <button id="btn1" class="btn1">上一张</button>
+        <button id="btn2">下一张</button>
+        <div class="box" id="box">
+            <p><img src="../images/1.jpg" alt=""></p>
+            <p><img src="../images/2.jpg" alt=""></p>
+            <p><img src="../images/3.jpg" alt=""></p>
+            <p><img src="../images/4.jpg" alt=""></p>
+            <p><img src="../images/5.jpg" alt=""></p>
+            <p><img src="../images/6.jpg" alt=""></p>
+            <p><img src="../images/7.jpeg" alt=""></p>
+            <p><img src="../images/8.jpeg" alt=""></p>
+            <p><img src="../images/9.jpg" alt=""></p>
+        </div>
+    </div>
+    <script>
+        var box=document.getElementById('box');
+        var p=document.getElementsByTagName('p');
+        var stage=document.getElementById('stage');
+        var btn1=document.getElementById('btn1');
+        var btn2=document.getElementById('btn2');
+        for(var i=0;i<p.length;i++){
+            p[i].style.transform='rotateY('+(40*i+1)+'deg)   translateZ(600px)';
+        }
+        var y=0;
+        var flag=true;
+        setInterval(function(){
+           if(flag){
+            y++;
+            box.style.transform='rotateY('+y+'deg)';
+           }
+        },20);
+        stage.onmouseenter=function(){
+            flag=false;
+        }
+        stage.onmouseleave=function(){
+            flag=true;
+        }
+        var deg=0;
+        btn1.onclick=function(){
+            deg-=40;
+            box.style.transform='rotateY('+deg+'deg)';
+        }
+        btn2.onclick=function(){
+            deg+=40;
+            box.style.transform='rotateY('+deg+'deg)';
+        }
+
+    </script>
+</body>
+</html>

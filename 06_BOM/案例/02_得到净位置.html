@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p><img src="../images/1.jpg" alt=""></p>
+        <div class="box1">
+            <p><img src="../images/2.jpg" alt=""></p>
+            <h3 id="h3">我的净位置</h3>
+        </div>
+        <p id="p"><img src="../images/1.jpg" alt="">1</p>
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // 监听窗口卷动事件
+        // console.log($('#p').offset().top);
+
+        //原生得方法
+        window.onload = function () {
+            var h3 = document.getElementById('h3');
+            var sum = 0;
+            o = h3;
+            while (true) {
+
+                // 得到这个元素到定位父亲的净位置
+                sum += o.offsetTop;
+                // offsetParent就是距离该子元素最近的进行过定位的父元素
+                o = o.offsetParent;
+                // 如果o是null或者o的节点类型不是元素节点
+                if (!o||o.nodeType != 1) {
+                    console.log(sum);
+                    break;
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
