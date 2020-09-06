@@ -142,7 +142,6 @@
             ];
             var a = parseInt(Math.random() * 7);
             brick = allBrick[a];
-
         }
         // 画砖头
         function drawBrick() {
@@ -159,16 +158,25 @@
         // 旋转砖头的函数
         function rotateBrick() {
             //用于接收旋转后矩阵的结果
+            var passBrick=brick;
             var resultArr = [[], [], [], [], []];
             for (var i = 0; i < 5; i++) {
                 for (var j = 0; j < 5; j++) {
                     resultArr[j][4 - i] = brick[i][j];
-                    // console.log(result[j][4-i]);
+                    console.log(resultArr[j][4-i]);
 
                 }
             }
-            brick = resultArr;
+            for (var i = 0; i < 5; i++) {
+                for (var j = 0; j < 5; j++) {
+                    if(j+col>=0&&j+col<=19){
+                        return resultArr;
+                    }
 
+                }
+            }
+            
+            
         }
 
         // 地图
@@ -182,25 +190,23 @@
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 2, 1, 0],
-            [0, 0, 2, 5, 0, 0, 5, 6, 5, 0, 0, 0, 4, 0, 0, 0, 4, 2, 1, 0],
-            [0, 0, 2, 5, 0, 0, 5, 6, 5, 0, 0, 0, 4, 0, 0, 0, 4, 2, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 2, 1, 0],
+            [0, 0, 2, 0, 0, 0, 5, 6, 5, 0, 0, 0, 4, 0, 0, 0, 4, 2, 1, 0],
+            [0, 0, 2, 0, 0, 0, 5, 6, 5, 0, 0, 0, 4, 0, 0, 0, 4, 2, 1, 0],
+            [1, 0, 2, 0, 3, 5, 5, 6, 5, 4, 3, 2, 4, 7, 2, 3, 4, 2, 1, 0],
             [1, 0, 2, 5, 3, 5, 5, 6, 5, 4, 3, 2, 4, 7, 2, 3, 4, 2, 1, 0],
-            [1, 0, 2, 5, 3, 5, 5, 6, 5, 4, 3, 2, 4, 7, 2, 3, 4, 2, 1, 0],
-            [1, 1, 2, 5, 3, 5, 5, 6, 5, 4, 3, 2, 4, 7, 2, 3, 4, 2, 1, 1],
-        ]
+            [1, 0, 2, 5, 3, 5, 5, 6, 5, 4, 3, 2, 4, 7, 2, 3, 4, 2, 1, 1],
+        ];
         // 画地图
         function drawMap() {
             for (var i = 0; i < 20; i++) {
                 for (var j = 0; j < 20; j++) {
-                    if (map[i][j] != 0) {
-                        color(i, j, map[i][j]);
-                    }
+                    color(i, j, map[i][j]);
                 }
 
             }
@@ -221,37 +227,50 @@
         }
         // 判断是否满一行函数
         function disappear() {
-            var vinish = true;
-            for (var i = 19; i > 4; i--) {
+            for (var i = 19; i >= 1; i--) {
+                var vinish = true;
                 for (var j = 0; j < 20; j++) {
                     if (map[i][j] == 0) {
                         vinish = false;
+                        break;
                     }
                 }
                 if (vinish) {
-                    map[i][j] = map[i - 1][j];
-                    map[20][20] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
+                    for (var m = 19; m > 0; m--) {
+                        map[m] = map[m - 1];
+                    }
+                    map[0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 }
             }
+            drawMap();
         }
         randomBrick();
         drawBrick();
         drawMap();
-        var dowm = true;
-
-        // 遍历数组，如果砖头的第i行第j列不是零，那么就染色
-        var timer = setInterval(function () {
-            // randomBrick();
-            clearColor();
+        // 判断是否能下落
+        function isCanDown(){
             for (var i = 0; i < 5; i++) {
                 for (var j = 0; j < 5; j++) {
-                    if (brick[i][j] != 0 && map[i + row + 1][j + col] != 0) {
+
+                    if (i + row + 1 >= 21) {
+                        dowm = false
+                    }
+
+                    if (i + row + 1 < 20 && brick[i][j] != 0 && map[i + row + 1][j + col] != 0) {
                         dowm = false;
+
                     }
                 }
 
             }
+            
+        }        
+        var dowm = true;
+        // 遍历数组，如果砖头的第i行第j列不是零，那么就染色
+        var timer = setInterval(function () {
+            clearColor();
+
+
             if (dowm) {
                 row++;
             } else {
@@ -259,7 +278,6 @@
                     for (var j = 0; j < 5; j++) {
                         if (brick[i][j] != 0) {
                             map[i + row][j + col] = brick[i][j];
-                            // disappear();
 
                         }
                     }
@@ -270,13 +288,14 @@
                 row = 0;
                 col = 8;
             }
+
+
             // 判断是不是满一行
+            disappear();
             drawMap();
             drawBrick();
-        }, 500);
 
-
-
+        }, 1000);
 
         // 事件监听
         document.onkeydown = function (e) {
@@ -285,6 +304,7 @@
             // 向下
             if (e.keyCode == 38) {
                 // 再转
+
                 rotateBrick();
 
 
@@ -294,9 +314,13 @@
                 while (true) {
                     for (var i = 0; i < 5; i++) {
                         for (var j = 0; j < 5; j++) {
-                            if (brick[i][j] != 0 && map[i + row + 1][j + col] != 0) {
-                                map[i + row][j + col] = brick[i][j];
+                            if (i + row + 1 >= 21) {
+                                dowm = false
+                            }
+
+                            if (i + row + 1 < 20 && brick[i][j] != 0 && map[i + row + 1][j + col] != 0) {
                                 dowm = false;
+
                             }
                         }
 
@@ -314,6 +338,8 @@
                 var isLeft = true;
                 for (var i = 0; i < 5; i++) {
                     for (var j = 0; j < 5; j++) {
+                        console.log(map[i + row][j + col - 1])
+
                         if (brick[i][j] != 0 && map[i + row][j + col - 1] != 0) {
                             isLeft = false;
                         }

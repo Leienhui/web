@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            margin:0 auto;
+            width: 800px;
+            height: 500px;
+            /* background-color: rgb(146, 13, 13); */
+        }
+        .box ul{
+            width: 800px;
+            height: 500px;
+            list-style: none;
+            position: relative;
+        }
+        .box ul li{
+           
+            position: absolute;
+            bottom: 0;
+            transition: all 1s ease 0s;
+        }
+        .box ul li.p1{
+            width: 100px;
+            height: 200px;
+            transform: translateX(-350px);
+            opacity: 0;
+        }
+
+        .box ul li.p2{
+            width: 150px;
+            height: 300px;
+            transform: translateX(-200px);
+            opacity: 1;
+
+
+        }
+        .box ul li.p3{
+            width: 500px;
+            height: 500px;
+            opacity: 1;
+
+        }
+
+        .box ul li.p4{
+            width: 150px;
+            height: 300px;
+            transform: translateX(550px);
+            opacity: 1;
+
+
+        }
+        .box ul li.p5{
+            width: 100px;
+            height: 200px;
+            transform: translateX(750px);
+            opacity: 0;
+
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul id="ul">
+            <li class="p1"></li>
+            <li class="p2"></li>
+            <li class="p3"></li>
+            <li class="p4"></li>
+            <li class="p5"></li>
+        </ul>
+        <button class="btn leftBtn" id="leftBtn"> &lt; </button>
+        <button class="btn rightBtn" id="rightBtn"> &gt; </button>
+    </div>
+    <script>
+        var arr=['images/1.jpg','images/2.jpg','images/6.jpg','images/4.jpg','images/5.jpg'];
+        var ul=document.getElementById('ul');
+        var lis=document.getElementsByTagName('li');
+        for(var i=0;i<arr.length;i++){
+            lis[i].style.backgroundImage='url('+arr[i]+')';
+        }
+        var rollArr=['p1','p2','p3','p4','p5'];
+        var leftBtn=document.getElementById('leftBtn');
+        var rightBtn=document.getElementById('rightBtn');
+        leftBtn.onclick=function(){
+            if(!flag) return;
+            flag=false;
+            rollArr.push(rollArr.shift());
+            for(var i=0;i<rollArr.length;i++){
+                lis[i].className=rollArr[i];
+            }
+            setTimeout(function(){
+                flag=true;
+            },1000)
+        }
+        var flag=true;
+        rightBtn.onclick=function(){
+            if(!flag) return;
+            flag=false;
+            rollArr.unshift(rollArr.pop());
+            for(var i=0;i<rollArr.length;i++){
+                lis[i].className=rollArr[i];
+            }
+            setTimeout(function(){
+                flag=true;
+            },1000)
+           
+        }
+    </script>
+</body>
+</html>

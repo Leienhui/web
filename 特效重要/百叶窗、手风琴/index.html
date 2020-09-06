@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 750px;
+            height: 500px;
+        }
+        ul{
+            list-style: none;
+            width: 2000px;
+            position: relative;
+        }
+        ul li{
+            float: left;
+            width: 150px;
+            height: 500px;
+            position: relative;
+
+        }
+        ul li:hover{
+            width: 600px;
+            height: 500px;
+        }
+       .box ul li p{
+            width: 600px;
+            height: 250px;
+            position: absolute;
+            bottom: -1100px;
+            left: 0;
+            z-index: 999;
+            background:black;
+            opacity: 0.55;
+            transition: all .2s ease 0s;
+            color: white;
+        }
+        .box ul li:hover p{
+            bottom: -15px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul id="ul">
+            <li><p>甲方甲方返还的见附件见附件附件点击放大镜放大大家谔谔分</p></li>
+            <li><p>甲方甲方返还的见附件见附件附件点击放大镜放大大家谔谔分</p></li>
+            <li><p>甲方甲方返还的见附件见附件附件点击放大镜放大大家谔谔分</p></li>
+            <li><p>甲方甲方返还的见附件见附件附件点击放大镜放大大家谔谔分</p></li>
+            <li><p>甲方甲方返还的见附件见附件附件点击放大镜放大大家谔谔分</p></li>
+        </ul>
+    </div>
+    <script>
+        var arr=['images/1.jpg','images/2.jpg','images/6.jpg','images/4.jpg','images/5.jpg'];
+        var ul=document.getElementById('ul');
+        var lis=document.getElementsByTagName('li');
+        for(var i=0;i<arr.length;i++){
+            lis[i].style.backgroundImage='url('+arr[i]+')';
+        }
+    </script>
+</body>
+</html>
