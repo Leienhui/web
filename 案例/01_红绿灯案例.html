@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    img {
+      width: 100px;
+      height: 230px;
+      transition: all 0.2s ease 0s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script>
+    // 创建一个灯类
+    function TranffiLight() {
+      // 灯和图片对应
+      this.color = 11;
+      // 调用自己的方法
+      this.init();
+      this.bindEvent();
+    }
+    //  初始化灯
+    TranffiLight.prototype.init = function () {
+      //   创建自己的dom
+      this.dom = document.createElement("img");
+      this.dom.src = `../images/${this.color}.png`;
+      box.appendChild(this.dom);
+    };
+    // 改变自己的颜色
+    TranffiLight.prototype.changeColor = function () {
+      this.color += 11;
+      if (this.color == 44) {
+        this.color = 11;
+      }
+      this.dom.src = `../images/${this.color}.png`;
+    };
+    // 绑定监听
+    TranffiLight.prototype.bindEvent = function () {
+      var self = this;
+      this.dom.onclick = function () {
+        self.changeColor();
+        console.log(1);
+      };
+    };
+    // 在new之前获取就行
+    var box = document.getElementById("box");
+    var count = 100;
+    while (count--) {
+      new TranffiLight();
+    }
+  </script>
+</body>
+
+</html>
