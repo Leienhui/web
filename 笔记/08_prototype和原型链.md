@@ -2,8 +2,8 @@
 
 ## 什么时prototype属性？
 
-* 任何函数都要prototype属性，prototype是“原型”的意思
-* prototype属性值是一个对象，它默认拥有**constructor属性，这个属性指回函数**
+* 任何函数都有prototype属性，prototype是“原型”的意思
+* prototype属性值是一个对象，它默认拥有**constructor属性，这个属性指向函数**
 
 | 函数____prototype____--->函数.prototype（得到prototype对象） |
 | ------------------------------------------------------------ |
@@ -92,7 +92,7 @@ console.log(xiaoming.__proto__ === People.prototype);//true
 
 ## 在prototype上添加方法
 
-* 之前，我们把方法写道对象身上，每个实例与每个实例的方法函数都是内存中不同的函数，造成了内u你浪费
+* 之前，我们把方法写道对象身上，每个实例与每个实例的方法函数都是内存中不同的函数，造成了内存浪费
   * 如下所示
 
 *  ```javascript
@@ -108,7 +108,7 @@ console.log(xiaoming.__proto__ === People.prototype);//true
         var xiaocao = new People("小草", 20, "女");
         // 函数是引用类型值，全等比较相同为true，不同为false
         console.log(xiaocao.introduce === xiaohua.introduce); //false
-   ```
+  ```
 
   * 解决方法：将方法写到prototype 上
 
