@@ -1,6 +1,6 @@
 #  prototype和原型链
 
-## 什么时prototype属性？
+## 什么是prototype属性？
 
 * 任何函数都有prototype属性，prototype是“原型”的意思
 * prototype属性值是一个对象，它默认拥有**constructor属性，这个属性指向函数**
